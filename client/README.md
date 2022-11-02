@@ -1,3 +1,6 @@
+# Outdoor Access Rhode Island
+This app is designed to help facilitate the love for the great outdoors right here in the Ocean State. Users are able to view and add new spots for outdoor recreation! There are so many great outdoor spaces in Rhode Island, you just need to know where to find them!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
