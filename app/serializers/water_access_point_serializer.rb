@@ -1,5 +1,5 @@
 class WaterAccessPointSerializer < ActiveModel::Serializer
-  attributes :id, :name, :lat, :long, :type, :description, :dogs, :town, :trail_map, :handicap_accessible, :details, :traffic
+  attributes :id, :parking, :name, :lat, :long, :type, :description, :dogs, :town, :trail_map, :handicap_accessible, :details, :traffic
 
   has_many :water_access_comments
   has_many :water_access_images

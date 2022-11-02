@@ -12,6 +12,7 @@ class CreateWaterAccessPoints < ActiveRecord::Migration[7.0]
       t.string :handicap_accessible
       t.string :details
       t.string :traffic
+      t.string :parking
 
       t.timestamps
     end
