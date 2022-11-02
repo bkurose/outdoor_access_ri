@@ -1,0 +1,2 @@
+class WaterAccessPoint < ApplicationRecord
+end

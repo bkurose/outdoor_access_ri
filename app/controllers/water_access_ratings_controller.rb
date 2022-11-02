@@ -1,0 +1,2 @@
+class WaterAccessRatingsController < ApplicationController
+end

@@ -1,0 +1,2 @@
+class WaterAccessCollaboratorsController < ApplicationController
+end

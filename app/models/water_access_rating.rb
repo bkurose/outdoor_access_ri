@@ -1,0 +1,2 @@
+class WaterAccessRating < ApplicationRecord
+end

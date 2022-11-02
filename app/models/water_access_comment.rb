@@ -1,0 +1,2 @@
+class WaterAccessComment < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class WaterAccessImagesController < ApplicationController
+end

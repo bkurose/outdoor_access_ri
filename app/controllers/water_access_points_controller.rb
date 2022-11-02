@@ -1,0 +1,2 @@
+class WaterAccessPointsController < ApplicationController
+end
