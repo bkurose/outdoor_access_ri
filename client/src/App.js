@@ -1,21 +1,25 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
+import Homepage from "./Homepage";
+import Signup from "./Signup";
+import WaterAccess from "./WaterAccess";
+import Search from "./Search";
+import NewAccess from "./NewAccess";
+import Profile from "./Profile";
+
+
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
-
   return (
     <div className="App">
-      {/* <h1>Page Count: {count}</h1> */}
+
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
+        <Route path="/" element={<Homepage />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/access" element={<WaterAccess />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/new_access" element={<NewAccess />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>
   );
