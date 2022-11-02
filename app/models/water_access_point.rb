@@ -14,5 +14,6 @@ class WaterAccessPoint < ApplicationRecord
     validates :handicap_accessible, presence: true
     validates :traffic, presence: true
     validates :details, presence: true
+    validates :parking, presence: true
     #trail_map not included yet
 end
