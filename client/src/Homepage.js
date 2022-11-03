@@ -16,12 +16,16 @@ function Homepage (){
     }, [])
 
     console.log(accesses)
+
+    const showAccesses = accesses.map((access_point)=> <AccessCard access_point={access_point} />)
     return (
         <div>
             <h1>Homepage</h1>
                 <Login />
                 <Logout />
-                <AccessCard />
+                {showAccesses[0]}
+                {showAccesses[1]}
+                {showAccesses[2]}
         </div>
     )
 }
