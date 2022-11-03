@@ -1,11 +1,11 @@
 class WaterAccessPointsController < ApplicationController
     def index
-        water_access_points = WaterAccessPoints.all
+        water_access_points = WaterAccessPoint.all
         render json: water_access_points, status: :ok
     end
     
     def create
-        water_access_point = WaterAccessPoints.create!(water_access_point_params)
+        water_access_point = WaterAccessPoint.create!(water_access_point_params)
         render json: water_access_point, status: :created
     end
     
@@ -33,6 +33,6 @@ class WaterAccessPointsController < ApplicationController
     end
 
     def find_water_access_point
-        WaterAccessPoints.find(params[:id])
+        WaterAccessPoint.find(params[:id])
     end
 end

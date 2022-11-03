@@ -1,11 +1,11 @@
 class WaterAccessCommentsController < ApplicationController
     def index
-        water_access_comments = WaterAccessComments.all
+        water_access_comments = WaterAccessComment.all
         render json: water_access_comments, status: :ok
     end
     
     def create
-        water_access_comment = WaterAccessComments.create!(water_access_comment_params)
+        water_access_comment = WaterAccessComment.create!(water_access_comment_params)
         render json: water_access_comment, status: :created
     end
     
@@ -33,6 +33,6 @@ class WaterAccessCommentsController < ApplicationController
     end
 
     def find_water_access_comment
-        WaterAccessComments.find(params[:id])
+        WaterAccessComment.find(params[:id])
     end
 end

@@ -1,11 +1,11 @@
 class WaterAccessImagesController < ApplicationController
     def index
-        water_access_images = WaterAccessImages.all
+        water_access_images = WaterAccessImage.all
         render json: water_access_images, status: :ok
     end
     
     def create
-        water_access_image = WaterAccessImages.create!(water_access_image_params)
+        water_access_image = WaterAccessImage.create!(water_access_image_params)
         render json: water_access_image, status: :created
     end
     
@@ -33,6 +33,6 @@ class WaterAccessImagesController < ApplicationController
     end
 
     def find_water_access_image
-        WaterAccessImages.find(params[:id])
+        WaterAccessImage.find(params[:id])
     end
 end

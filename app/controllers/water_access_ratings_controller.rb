@@ -1,11 +1,11 @@
 class WaterAccessRatingsController < ApplicationController
     def index
-        water_access_ratings = WaterAccessRatings.all
+        water_access_ratings = WaterAccessRating.all
         render json: water_access_ratings, status: :ok
     end
     
     def create
-        water_access_rating = WaterAccessRatings.create!(water_access_rating_params)
+        water_access_rating = WaterAccessRating.create!(water_access_rating_params)
         render json: water_access_rating, status: :created
     end
     
@@ -33,6 +33,6 @@ class WaterAccessRatingsController < ApplicationController
     end
 
     def find_water_access_rating
-        WaterAccessRatings.find(params[:id])
+        WaterAccessRating.find(params[:id])
     end
 end
