@@ -16,15 +16,15 @@ user3 = User.create(username: "surfingFreak2", email: "surfingFreak2@aol.com", p
 user4 = User.create(username: "NKBfriend11", email: "NKBfriend11@yahoo.com", password: "123123cs", first_name: "Sam", last_name: "BW")
 
 #water_access_points
-water_access_point1 = WaterAccessPoint.create(name: "Bluff Avenue, Access Point for East Beach" town: "Westerly", handicap_accessible: false, traffic: "medium", description: "An off-the-beaten-path access point for East Beach, leads to the far western side. CRMC ROW A-2", dogs: false, type: "ROW", lat: 41.308712, long: -71.855647 parking: "Limited")
-water_access_point2 = WaterAccessPoint.create(name: "Charlestown Breach Parking Lot, Access Point for Charlestown Beach" town: "Charlestown", handicap_accessible: true, traffic: "heavy", description: "A parking lot a the far end of Charlestown Beach Road, great for accessing the west end of Charlestown Beach. CRMC ROW B-1", dogs: false, type: "ROW", lat: 41.357171, long: -71.637151, parking: "Lot with 20-30 spots, somtimes limited by nearby homeowners")
-water_access_point3 = WaterAccessPoint.create(name: "Statice Drive, Access Point for Charlestown Beach" town: "South Kingstown", handicap_accessible: false, traffic: "light", description: "An off-the-beaten-path access point for Charlestown Beach, leads to the far eastern side. CRMC ROW D-1", dogs: false, type: "ROW", lat: 41.363507, long: -71.615373, parking: "Extremely limited")
+water_access_point1 = WaterAccessPoint.create(name: "Bluff Avenue, Access Point for East Beach", town: "Westerly", handicap_accessible: false, traffic: "medium", description: "An off-the-beaten-path access point for East Beach, leads to the far western side. CRMC ROW A-2", dogs: false, access_type: "ROW", lat: 41.308712, long: -71.855647, parking: "Limited")
+water_access_point2 = WaterAccessPoint.create(name: "Charlestown Breach Parking Lot, Access Point for Charlestown Beach", town: "Charlestown", handicap_accessible: true, traffic: "heavy", description: "A parking lot a the far end of Charlestown Beach Road, great for accessing the west end of Charlestown Beach. CRMC ROW B-1", dogs: false, access_type: "ROW", lat: 41.357171, long: -71.637151, parking: "Lot with 20-30 spots, somtimes limited by nearby homeowners")
+water_access_point3 = WaterAccessPoint.create(name: "Statice Drive, Access Point for Charlestown Beach", town: "South Kingstown", handicap_accessible: false, traffic: "light", description: "An off-the-beaten-path access point for Charlestown Beach, leads to the far eastern side. CRMC ROW D-1", dogs: false, access_type: "ROW", lat: 41.363507, long: -71.615373, parking: "Extremely limited")
 
 #water_acccess_collaborators
 water_access_collab1 = WaterAccessCollaborator.create(user: user1, water_access_point: water_access_point1, full_edit: true)
 water_access_collab2 = WaterAccessCollaborator.create(user: user1, water_access_point: water_access_point2, full_edit: true)
 water_access_collab3 = WaterAccessCollaborator.create(user: user1, water_access_point: water_access_point3, full_edit: true)
-water_access_collab4 = WaterAccessCollaborator.create(user: user1, water_access_point: water_access_point4, full_edit: true)
+water_access_collab4 = WaterAccessCollaborator.create(user: user3, water_access_point: water_access_point2, full_edit: true)
 water_access_collab5 = WaterAccessCollaborator.create(user: user2, water_access_point: water_access_point1, full_edit: false)
 
 #water_access_comments

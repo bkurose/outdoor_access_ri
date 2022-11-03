@@ -4,7 +4,7 @@ class CreateWaterAccessPoints < ActiveRecord::Migration[7.0]
       t.string :name
       t.float :lat
       t.float :long
-      t.string :type
+      t.string :access_type
       t.string :description
       t.boolean :dogs
       t.string :town

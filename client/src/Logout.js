@@ -1,9 +1,18 @@
+import Button from 'react-bootstrap/Button';
 
 function Logout (){
-    return (
-        <div>
 
-        </div>
+    function handleLogout(){
+        fetch("/logout", {method: "DELETE"})
+        .then((r)=> {console.log("logged out")})
+    }
+
+    return (
+        <>
+            <Button variant="primary" onClick={handleLogout}>
+                Logout
+            </Button>
+        </>
     )
 }
 

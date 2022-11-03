@@ -3,6 +3,7 @@ class User < ApplicationRecord
     has_many :water_access_ratings, dependent: :destroy
     has_many :water_access_collaborators, dependent: :destroy
     has_many :water_access_points, through: :water_access_collaborators
+    has_many :water_access_images
 
     validates :first_name, presence: true, length: {minimum: 1, maximum: 64}
     validates :last_name, presence: true, length: {minimum: 1, maximum: 64}

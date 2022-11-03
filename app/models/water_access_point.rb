@@ -8,7 +8,7 @@ class WaterAccessPoint < ApplicationRecord
     validates :name, presence: true, uniqueness: true, length: {minimum: 6, maximum: 180}
     validates :lat, presence: true
     validates :long, presence: true
-    validates :type, presence: true
+    validates :access_type, presence: true
     validates :description, presence: true, length: {minimum: 50, maximum: 240}
     validates :town, presence: true
     validates :handicap_accessible, presence: true
