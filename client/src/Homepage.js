@@ -10,12 +10,9 @@ function Homepage (){
         fetch("/water_access_points")
         .then(res => res.json())
         .then(data =>{
-            console.log(accesses)
             setAccesses(data)
         })
     }, [])
-
-    console.log(accesses)
 
     const showAccesses = accesses.map((access_point)=> <AccessCard access_point={access_point} />)
     return (
