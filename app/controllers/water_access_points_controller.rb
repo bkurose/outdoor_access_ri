@@ -1,7 +1,7 @@
 class WaterAccessPointsController < ApplicationController
     def index
         water_access_points = WaterAccessPoint.all
-        render json: water_access_points, status: :ok
+        render json: water_access_points, status: :ok, each_serializer: WaterAccessPointCardSerializer
     end
     
     def create
@@ -29,7 +29,7 @@ class WaterAccessPointsController < ApplicationController
     private
 
     def water_access_point_params
-        params.permit(:name, :parking, :lat, :long, :access_type, :description, :dogs, :town, :trail_map, :handicap_accessible, :details, :traffic)
+        params.permit(:id, :name, :parking, :lat, :long, :access_type, :description, :dogs, :town, :trail_map, :handicap_accessible, :details, :traffic)
     end
 
     def find_water_access_point
