@@ -9,8 +9,8 @@ function Logout (){
 
     return (
         <>
-            <Button variant="primary" onClick={handleLogout}>
-                Logout
+            <Button variant="auth" onClick={handleLogout}>
+                Logout ⚓
             </Button>
         </>
     )

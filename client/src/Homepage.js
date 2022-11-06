@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Login from "./Login"
-import Logout from "./Logout"
 import AccessCard from "./AccessCard"
+import NavBar from "./NavBar"
 
 function Homepage (){    
     const [accesses, setAccesses] = useState([])
@@ -17,9 +16,8 @@ function Homepage (){
     const showAccesses = accesses.map((access_point)=> <AccessCard access_point={access_point} />)
     return (
         <div>
+            <NavBar />
             <h1>Homepage</h1>
-                <Login />
-                <Logout />
                 {showAccesses[0]}
                 {showAccesses[1]}
                 {showAccesses[2]}

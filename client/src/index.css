@@ -16,3 +16,50 @@ code {
   height: 600px;
   max-width: 90%
 }
+
+#NavBar {
+  height: 100px;
+  width: 100%;
+  background-color: whitesmoke;
+
+}
+
+.btn-auth {
+  background-color: #009BFF;
+  font-family: 'Impact', fantasy;
+  font-style: bold;
+  font-size: 20px;
+  color: white;
+  height: 50px;
+  padding-top: 2px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 30px;
+  width: 10%;
+  float: right;
+  margin-right: 25px;
+  margin-top: 40px;
+  margin-bottom: 5px;
+}
+.btn-auth:hover{
+  background-color: #C2E7FF;
+  color: #143C56;
+}
+
+.Link {
+  margin-left: 50px;
+  font-family: 'Impact', fantasy;
+  color: #009BFF;
+  text-decoration: none;
+  font-size: 30px;
+  padding-top: 50px;
+  bottom: 10px;
+  display: inline-block;
+}
+
+#nav_logo {
+  height: 100px;
+  margin-left: 10%;
+  margin-right: 10;
+  position: absolute;
+}
