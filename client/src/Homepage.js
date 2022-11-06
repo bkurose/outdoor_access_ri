@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import AccessCard from "./AccessCard"
 import NavBar from "./NavBar"
+import SearchBar from './SearchBar';
 
 function Homepage (){    
     const [accesses, setAccesses] = useState([])
@@ -17,10 +18,13 @@ function Homepage (){
     return (
         <div>
             <NavBar />
+            <SearchBar />
             <h1>Homepage</h1>
+            <div id='example-cards'>
                 {showAccesses[0]}
                 {showAccesses[1]}
                 {showAccesses[2]}
+            </div>
         </div>
     )
 }

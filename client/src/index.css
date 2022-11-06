@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: whitesmoke;
 }
 
 code {
@@ -20,7 +21,9 @@ code {
 #NavBar {
   height: 100px;
   width: 100%;
-  background-color: whitesmoke;
+  background-color: #f3f4f6;
+  display: inline-block;
+  position: relative;
 
 }
 
@@ -31,15 +34,16 @@ code {
   font-size: 20px;
   color: white;
   height: 50px;
-  padding-top: 2px;
   padding-right: 20px;
   padding-left: 20px;
   border-radius: 30px;
-  width: 10%;
+  width: 160px;
   float: right;
   margin-right: 25px;
   margin-top: 40px;
   margin-bottom: 5px;
+
+
 }
 .btn-auth:hover{
   background-color: #C2E7FF;
@@ -47,19 +51,53 @@ code {
 }
 
 .Link {
-  margin-left: 50px;
+  margin-left: 2%;
   font-family: 'Impact', fantasy;
   color: #009BFF;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 27px;
   padding-top: 50px;
   bottom: 10px;
-  display: inline-block;
+  float: left;
+  /* display: inline-block; */
+  align-items: center;
 }
 
 #nav_logo {
   height: 100px;
-  margin-left: 10%;
-  margin-right: 10;
-  position: absolute;
+  display: block;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#search_background{
+  background-image: url("SearchBarGraphic.jpg");
+  height: 60vh;
+  width: 100%;
+  background-repeat:no-repeat;
+  background-size:contain;
+  margin-top: -6px;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+#search_bar{
+  width: 30vw;
+  display: flex;
+  height: 50px;
+}
+
+#search_submit{
+  width: 10vw;
+}
+
+#example-cards{
+  display: flex;
+  justify-content:space-around;
 }

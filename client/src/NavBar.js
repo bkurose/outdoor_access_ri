@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Login from "./Login";
 import Logout from "./Logout";
+import Signup from "./Signup";
 import { useState } from "react"
 
 function NavBar (){
@@ -22,9 +23,9 @@ function NavBar (){
 
             <Link className="Link" to="/profile">Profile</Link>
 
-            <img id="nav_logo" src="https://o.remove.bg/downloads/fdfcf0c3-c096-42bc-83c9-28a938dcfab6/OARI_logo-removebg-preview.png" alt="Logo" />
+            <Link to="/"><img id="nav_logo" src={require("./OARI_logo.png")} alt="Logo" /></Link>
 
-            {loginStatus ? <Logout handleLogout={handleLogout}/> : <Login handleLogin={handleLogin}/>}
+            {loginStatus ? <Logout handleLogout={handleLogout}/> : <><Login handleLogin={handleLogin}/> <Signup /></>}
 
         </div>
     )
