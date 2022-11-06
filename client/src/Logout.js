@@ -7,6 +7,7 @@ function Logout ({handleLogout}){
         .then((r)=> {
             sessionStorage.removeItem("login_status")
             handleLogout()
+            alert("Logout successful!")
         })
     }
 

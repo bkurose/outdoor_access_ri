@@ -12,7 +12,7 @@ function AccessCard (access_point){
 
     return (
         <>
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '25rem' }}>
             <Card.Img variant="top" src="https://upload.wikimedia.org/wikipedia/commons/1/14/Ireland-AtlanticOceanwithAranIsland.jpg" />
                 <Card.Body>
                 <Card.Title>{access_point.access_point.name}</Card.Title>

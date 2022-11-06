@@ -25,7 +25,7 @@ function NavBar (){
 
             <Link to="/"><img id="nav_logo" src={require("./OARI_logo.png")} alt="Logo" /></Link>
 
-            {loginStatus ? <Logout handleLogout={handleLogout}/> : <><Login handleLogin={handleLogin}/> <Signup /></>}
+            {loginStatus ? <><Logout handleLogout={handleLogout}/><p id='login-welcome'>Welcome,</p></> : <><Login handleLogin={handleLogin}/> <Signup handleLogin={handleLogin}/></>}
 
         </div>
     )

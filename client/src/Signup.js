@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-function Signup (){
+function Signup ({handleLogin}){
     const [ show, setShow ] = useState(false);
     const [ userData, setUserData ] = useState({
         first_name: "",
@@ -35,7 +35,29 @@ function Signup (){
             body: JSON.stringify(userData)
         })
         .then(res => res.json())
-        .then(user => console.log(user))
+        .then(user => {
+            console.log(user)
+            fetch("/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    "username": userData.username,
+                    "password": userData.password
+                })
+            })
+            .then((res) => {
+                if(res.ok) {
+                    res.json().then(r => {
+                        sessionStorage.setItem("login_status", false)
+                        handleLogin()
+                        alert("Login Success!")
+                    })
+                }else{res.json().then(json => console.log(json.errors))} 
+            })
+        })
+
     }
     return (
         <> 
