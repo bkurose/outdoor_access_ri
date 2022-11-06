@@ -1,10 +1,10 @@
 export function fetchUser() {
     return function (dispatch) {
-      dispatch({ type: "user/userLoading" });
+      dispatch({ type: "login/userLoading" });
       fetch("/login")
         .then((response) => response.json())
         .then((data) => {
-          dispatch({ type: "user/userLoaded", payload: data });
+          dispatch({ type: "login/userLoaded", payload: data });
         });
     };
   }
@@ -16,12 +16,12 @@ export function fetchUser() {
   
   export default function catsReducer(state = initialState, action) {
     switch (action.type) {
-      case "user/userLoading":
+      case "login/userLoading":
         return {
           ...state,
           status: "loading",
         };
-      case "user/userLoaded":
+      case "login/userLoaded":
         return {
           ...state,
           entities: action.payload,

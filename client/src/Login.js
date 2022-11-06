@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-function Login (){
+function Login ({handleLogin}){
     const [ loginData, setLoginData ] = useState({username: "", password: ""})
     const [ show, setShow ] = useState(false);
 
@@ -29,7 +29,11 @@ function Login (){
         })
         .then((res) => {
             if(res.ok) {
-                res.json().then(r => {console.log("logged in")})
+                res.json().then(r => {
+                    sessionStorage.setItem("login_status", false)
+                    handleLogin()
+                    alert("Login Success!")
+                })
             }else{res.json().then(json => console.log(json.errors))} 
         })
     }

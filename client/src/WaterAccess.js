@@ -3,6 +3,7 @@ import {useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet';
+import NavBar from './NavBar';
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -43,6 +44,7 @@ function WaterAccess (){
 
     return (
         <div>
+            <NavBar />
             {!currentAccess.long ? <h1>loading access point information...</h1> : 
             <>
                 <h1>{currentAccess.name}</h1>
