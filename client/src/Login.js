@@ -52,7 +52,6 @@ function Login ({handleLogin}){
                 <Modal.Body>
                     <Form onSubmit={handleOnSubmit}>
                         <Form.Group className="mb-3" >
-                            <Form.Label>Username</Form.Label>
                             <Form.Control
                                 type="username"
                                 name="username"
@@ -63,7 +62,6 @@ function Login ({handleLogin}){
                             />  
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Label>Password</Form.Label>
                             <Form.Control
                                 type="password"
                                 name="password"
@@ -73,7 +71,7 @@ function Login ({handleLogin}){
                                 autoFocus
                             />
                         </Form.Group>
-                        <Button variant="primary" type='submit' onClick={handleClose}>
+                        <Button variant="form-submit" type='submit' onClick={handleClose}>
                             Login
                         </Button>
                     </Form>

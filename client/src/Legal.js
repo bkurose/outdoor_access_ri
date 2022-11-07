@@ -1,9 +1,9 @@
 
 function Legal (){
     return (
-        <div>
 
-        </div>
+            <p>Terms of Use</p>
+
     )
 }
 

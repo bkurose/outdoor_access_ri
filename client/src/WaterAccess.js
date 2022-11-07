@@ -48,7 +48,7 @@ function WaterAccess (){
             {!currentAccess.long ? <h1>loading access point information...</h1> : 
             <>
                 <h1>{currentAccess.name}</h1>
-                <MapContainer id="map" center={[currentAccess.lat, currentAccess.long]} zoom={13} scrollWheelZoom={false}>
+                <MapContainer id="map" center={[currentAccess.lat, currentAccess.long]} zoom={14} scrollWheelZoom={false}>
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

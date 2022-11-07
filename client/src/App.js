@@ -6,6 +6,7 @@ import WaterAccess from "./WaterAccess";
 import Search from "./Search";
 import NewAccess from "./NewAccess";
 import Profile from "./Profile";
+import Legal from "./Legal";
 
 
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/new_access" element={<NewAccess />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/legal" element={<Legal />} />
       </Routes>
     </div>
   );

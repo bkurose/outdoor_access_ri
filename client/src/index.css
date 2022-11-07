@@ -36,19 +36,34 @@ code {
   padding-right: 20px;
   padding-left: 20px;
   border-radius: 30px;
-  width: 160px;
+
   float: right;
   margin-right: 25px;
   margin-top: 40px;
   margin-bottom: 5px;
-
-
 }
+
 .btn-auth:hover{
   background-color: #C2E7FF;
   color: #143C56;
 }
 
+.btn-form-submit {
+  background-color: #009BFF;
+  font-family: 'Impact', fantasy;
+  font-size: 20px;
+  color: white;
+  height: 50px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 30px;
+  float: right;
+}
+
+.btn-form-submit:hover{
+  background-color: #C2E7FF;
+  color: #143C56;
+}
 .Link {
   margin-left: 2%;
   font-family: 'Impact', fantasy;
@@ -101,7 +116,7 @@ code {
 }
 
 #search_submit{
-  width: 12vw;
+  width: 9vw;
   background-color: #009BFF;
   font-family: 'Impact', fantasy;
   font-style: bold;
@@ -109,6 +124,7 @@ code {
   color: white;
   height: 50px;
   border-radius: 30px;
+  margin-left: 1vw;
 }
 
 #example-cards{

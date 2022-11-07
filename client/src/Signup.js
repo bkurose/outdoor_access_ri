@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import { Link } from "react-router-dom";
 
 function Signup ({handleLogin}){
     const [ show, setShow ] = useState(false);
@@ -72,10 +73,9 @@ function Signup ({handleLogin}){
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="first_name">
-              <Form.Label>First Name:</Form.Label>
               <Form.Control
                 type="first_name"
-                placeholder="Johnny"
+                placeholder="First Name"
                 autoFocus
                 name="first_name"
                 value={userData.first_name}
@@ -83,10 +83,9 @@ function Signup ({handleLogin}){
               />
             </Form.Group> 
             <Form.Group className="mb-3" controlId="last_name">
-              <Form.Label>Last Name:</Form.Label>
               <Form.Control
                 type="last_name"
-                placeholder="Shore"
+                placeholder="Last Name"
                 autoFocus
                 name="last_name"
                 value={userData.last_name}
@@ -94,22 +93,19 @@ function Signup ({handleLogin}){
               />
             </Form.Group> 
           <Form.Group className="mb-3" controlId="username">
-              <Form.Label>Username:</Form.Label>
               <Form.Control
                 type="username"
-                placeholder="JohnnyShore221"
+                placeholder="Desired Username"
                 autoFocus
                 value={userData.username}
                 name="username"
                 onChange={handleOnChange}
               />
-            </Form.Group>
-            
+            </Form.Group>            
             <Form.Group className="mb-3" controlId="email">
-              <Form.Label>Email:</Form.Label>
               <Form.Control
                 type="email"
-                placeholder="your_email@example.com"
+                placeholder="Email Address"
                 autoFocus
                 name="email"
                 value={userData.email}
@@ -117,29 +113,28 @@ function Signup ({handleLogin}){
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="password">
-              <Form.Label>Password:</Form.Label>
               <Form.Control
                 type="password"
                 autoFocus
                 name="password"
                 value={userData.password}
-                placeholder="password"
+                placeholder="Password"
                 onChange={handleOnChange}
               />
             </Form.Group>  
             <Form.Group className="mb-3" controlId="confirm-password">
-              <Form.Label>Confirm Password:</Form.Label>
               <Form.Control
                 type="password"
                 autoFocus
-                placeholder="password confirmation"
+                placeholder="Password Confirmation"
                 value={userData.password_confirmation}
                 name="password_confirmation"
                 onChange={handleOnChange}
               />
-            <p>I agree to the Terms and Conditions</p>
+
             </Form.Group> 
-            <Button onClick={handleClose} variant="primary" type="submit" >
+                <Form.Check type='checkbox' label={<p>Agree to the <Link to="/legal" target="_blank" rel="noopener noreferrer">Terms and Conditions</Link></p>} />
+            <Button onClick={handleClose} variant="form-submit" type="submit" >
             Register
             </Button>
           </Form>
