@@ -4,7 +4,7 @@ import Logout from "./Logout";
 import Signup from "./Signup";
 import { useState } from "react"
 
-function NavBar (){
+function NavBar ({handleUser}){
     const loginStorage = sessionStorage.getItem("login_status")
     const [loginStatus, setLoginStatus] = useState(loginStorage)
 
@@ -17,15 +17,15 @@ function NavBar (){
     }
     return (
         <div id="NavBar">
-            <Link className="Link" to="/search">Search</Link>
+            <Link className="Link" to="/map_overview">Overview</Link>
 
             <Link className="Link" to="/new_access">New Access</Link>
 
-            <Link className="Link" to="/profile">Profile</Link>
+            <Link className="Link" to="/access_rights">Legal Rights</Link>
 
             <Link to="/"><img id="nav_logo" src={require("./OARI_logo.png")} alt="Logo" /></Link>
 
-            {loginStatus ? <><Logout handleLogout={handleLogout}/><p id='login-welcome'>Welcome,</p></> : <><Login handleLogin={handleLogin}/> <Signup handleLogin={handleLogin}/></>}
+            {loginStatus ? <><Logout handleLogout={handleLogout}/><p id='login-welcome'>Welcome,</p></> : <><Login handleUser={handleUser} handleLogin={handleLogin}/> <Signup handleLogin={handleLogin}/></>}
 
         </div>
     )

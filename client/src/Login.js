@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import { useNavigate } from "react-router-dom";
 
 function Login ({handleLogin}){
     const [ loginData, setLoginData ] = useState({username: "", password: ""})
@@ -9,6 +10,8 @@ function Login ({handleLogin}){
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    let navigate = useNavigate();
 
     const handleOnChange = (event) => {
         const name = event.target.name
@@ -31,8 +34,11 @@ function Login ({handleLogin}){
             if(res.ok) {
                 res.json().then(r => {
                     sessionStorage.setItem("login_status", false)
+                    sessionStorage.setItem("user_data", JSON.stringify(r))
                     handleLogin()
                     alert("Login Success!")
+                    navigate(`profile`)
+                    window.location.reload()
                 })
             }else{res.json().then(json => console.log(json.errors))} 
         })
