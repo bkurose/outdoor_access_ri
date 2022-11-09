@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Signup ({handleLogin}){
   const [ show, setShow ] = useState(false);
@@ -15,9 +16,20 @@ function Signup ({handleLogin}){
     password_confirmation: "",
   })
   const [validated, setValidated] = useState(false);
+  const [users, setUsers] = useState([])
+
+  let navigate = useNavigate();
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(true);
+    fetch('/users')
+    .then(res => res.json())
+    .then(res => {
+      setUsers(res)
+      console.log(res)
+    })
+  }
 
   const handleOnChange = (event) => {
     const name = event.target.name
@@ -26,13 +38,33 @@ function Signup ({handleLogin}){
     setUserData({...userData, [name]: value})
   }
 
+  const usernames = users.map((user)=>user.username)
+  const emails = users.map((user)=> user.email)
+
   function handleSubmit(e){
     const form = e.currentTarget;
 
-    if (userData.password !== userData.password_confirmation){
-      alert("Password and Password Confirmation do not match!")
+    if(usernames.includes(userData.username)){
+      e.preventDefault();
+      e.stopPropagation();
+      alert("Username already taken!" )
+      setValidated(true)
     }
-    if (form.checkValidity() === false) {
+
+    else if(emails.includes(userData.email)){
+      e.preventDefault();
+      e.stopPropagation();
+      alert("Email already taken!" )
+      setValidated(true)
+    }
+
+    else if (userData.password !== userData.password_confirmation){
+      e.preventDefault();
+      e.stopPropagation();
+      alert("Passwords do not match!" )
+      setValidated(true)
+    }
+    else if (form.checkValidity() === false) {
       e.preventDefault();
       e.stopPropagation();
       alert("Please fill out the registration form properly" )
@@ -65,9 +97,12 @@ function Signup ({handleLogin}){
       .then((res) => {
         if(res.ok) {
             res.json().then(r => {
-                sessionStorage.setItem("login_status", false)
-                handleLogin()
-                alert("Login Success!")
+              sessionStorage.setItem("login_status", false)
+              sessionStorage.setItem("user_data", JSON.stringify(r))
+              handleLogin()
+              alert("Registration Success!")
+              navigate(`profile`)
+              window.location.reload()
             })
         }else{res.json().then(json => console.log(json.errors))} 
       })
