@@ -13,7 +13,7 @@ function AccessCard (access_point){
     return (
         <>
         <Card style={{ width: '25rem' }}>
-            <Card.Img variant="top" src="https://upload.wikimedia.org/wikipedia/commons/1/14/Ireland-AtlanticOceanwithAranIsland.jpg" />
+            <Card.Img id="card_image" onClick={function(){handleCardClick(access_point.access_point.id)}} variant="top" src="https://upload.wikimedia.org/wikipedia/commons/1/14/Ireland-AtlanticOceanwithAranIsland.jpg" />
                 <Card.Body>
                 <Card.Title>{access_point.access_point.name}</Card.Title>
                 <Card.Text style={{ fontSize: "20px" }}>
@@ -22,7 +22,6 @@ function AccessCard (access_point){
                 <Card.Text>
                     {access_point.access_point.description}
                 </Card.Text>
-                <Button onClick={function(){handleCardClick(access_point.access_point.id)}} variant="primary">Go somewhere</Button>
             </Card.Body>
         </Card>
 

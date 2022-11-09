@@ -13,9 +13,20 @@ code {
     monospace;
 }
 
+#card_image:hover {
+  cursor: pointer;
+  opacity: 0.8;
+
+}
+
 #map { 
   height: 600px;
   max-width: 90%
+}
+
+#map_overview { 
+  height: 800px;
+  max-width: 50%
 }
 
 #NavBar {

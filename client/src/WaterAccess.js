@@ -74,13 +74,16 @@ function WaterAccess (){
                     <Marker icon={outdoorAcessMarker} position={[currentAccess.lat, currentAccess.long]}>
                         <Popup>
                             <b>{currentAccess.name}: </b>  
-                            {currentAccess.details}
+                            {currentAccess.description}
                         </Popup>
                     </Marker>
                 </MapContainer>
                 <a href={`https://www.google.com/maps/dir/?api=1&destination=${currentAccess.lat}%2C${currentAccess.long}`}>Google Navigate Here</a>
                 <h2>rating: {averageRating()} </h2>
-                
+                <h2>Details:</h2>
+                <p>{currentAccess.details}</p>
+                <h2>Tips:</h2>
+                <p>{currentAccess.tips}</p>
                 {currentAccess.water_access_comments.map(comment => <Comment commentUsers={commentUsers} comment={comment}/>)}
                 {showNewComment ? <>
                     <Form>

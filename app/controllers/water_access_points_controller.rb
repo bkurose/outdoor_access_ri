@@ -2,7 +2,7 @@ class WaterAccessPointsController < ApplicationController
     skip_before_action :authorized, only: [:index, :show]
     def index
         water_access_points = WaterAccessPoint.all
-        render json: water_access_points, status: :ok, each_serializer: WaterAccessPointCardSerializer
+        render json: water_access_points, status: :ok, each_serializer: WaterAccessPointIndexSerializer
     end
     
     def create
