@@ -1,9 +1,10 @@
-
+import NavBar from "./NavBar"
 function Rights (){
 
     return (
         <div>
-            <h1>Search</h1>
+            <NavBar />
+            <h1>RIghts</h1>
         </div>
     )
 }
