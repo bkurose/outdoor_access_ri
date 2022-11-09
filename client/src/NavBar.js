@@ -3,10 +3,15 @@ import Login from "./Login";
 import Logout from "./Logout";
 import Signup from "./Signup";
 import { useState } from "react"
+import {useContext} from "react"
+import {userContext} from './App'
 
 function NavBar ({handleUser}){
     const loginStorage = sessionStorage.getItem("login_status")
     const [loginStatus, setLoginStatus] = useState(loginStorage)
+
+    const user = useContext(userContext);
+    
 
     function handleLogin(){
         setLoginStatus(true)
@@ -25,7 +30,7 @@ function NavBar ({handleUser}){
 
             <Link to="/"><img id="nav_logo" src={require("./OARI_logo.png")} alt="Logo" /></Link>
 
-            {loginStatus ? <><Logout handleLogout={handleLogout}/><p id='login-welcome'>Welcome,</p></> : <><Login handleUser={handleUser} handleLogin={handleLogin}/> <Signup handleLogin={handleLogin}/></>}
+            {loginStatus ? <><Logout handleLogout={handleLogout}/><p id='login-welcome'>welcome, <Link className="profileLink" to="/profile">{user.first_name}</Link> </p></> : <><Login handleUser={handleUser} handleLogin={handleLogin}/> <Signup handleLogin={handleLogin}/></>}
 
         </div>
     )
