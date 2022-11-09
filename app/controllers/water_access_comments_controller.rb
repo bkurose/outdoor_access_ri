@@ -29,7 +29,7 @@ class WaterAccessCommentsController < ApplicationController
     private
 
     def water_access_comment_params
-        params.permit(:user_id, :water_access_point_id, :comment)
+        params.permit(:user_id, :water_access_point_id, :comment, :comment_title    )
     end
 
     def find_water_access_comment

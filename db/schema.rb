@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_02_170611) do
   create_table "water_access_comments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "water_access_point_id"
+    t.string "comment_title"
     t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

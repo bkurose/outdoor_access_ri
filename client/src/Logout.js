@@ -9,6 +9,7 @@ function Logout ({handleLogout}){
         fetch("/logout", {method: "DELETE"})
         .then((r)=> {
             sessionStorage.removeItem("login_status")
+            sessionStorage.removeItem("user_data")
             handleLogout()
             alert("Logout successful!")
             navigate(`/`)

@@ -21,9 +21,7 @@ function Homepage (){
             <SearchBar />
             <h1>Homepage</h1>
             <div id='example-cards'>
-                {showAccesses[0]}
-                {showAccesses[1]}
-                {showAccesses[2]}
+                {showAccesses.slice(0,3)}
             </div>
         </div>
     )

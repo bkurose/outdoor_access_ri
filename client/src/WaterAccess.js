@@ -4,6 +4,10 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet';
 import NavBar from './NavBar';
+import Comment from './Comment';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -16,6 +20,8 @@ L.Icon.Default.mergeOptions({
 function WaterAccess (){
     const { id } = useParams()
     const [currentAccess, setCurrentAccess] = useState([])
+    const [commentUsers, setCommentUsers] = useState([])
+    const [showNewComment, setShowNewComment] = useState(false)
 
     useEffect(()=> {
         fetch(`/water_access_points/${id}`)
@@ -23,9 +29,21 @@ function WaterAccess (){
         .then(access => {
             setCurrentAccess(access)
         })
+        fetch('/users')
+        .then(res => res.json())
+        .then(res => {
+          setCommentUsers(res)
+        })
     }, [id])
 
-    console.log(currentAccess.water_access_ratings)
+    console.log(currentAccess)
+
+    function handleOpenComment(){
+        setShowNewComment(true)
+    }
+    function handleCloseComment(){
+        setShowNewComment(false)
+    }
 
     function averageRating() {
         const totalRatings = currentAccess.water_access_ratings.map(rating => rating.rating)
@@ -62,8 +80,23 @@ function WaterAccess (){
                 </MapContainer>
                 <a href={`https://www.google.com/maps/dir/?api=1&destination=${currentAccess.lat}%2C${currentAccess.long}`}>Google Navigate Here</a>
                 <h2>rating: {averageRating()} </h2>
-                <h2>comments:</h2>
-                {currentAccess.water_access_comments.map(comment => <p>{comment.comment}</p>)}
+                
+                {currentAccess.water_access_comments.map(comment => <Comment commentUsers={commentUsers} comment={comment}/>)}
+                {showNewComment ? <>
+                    <Form>
+                        <Button onClick={handleCloseComment} style={{"float": "right"}}>X</Button>
+                        <Form.Group className="mb-3" controlId="newCommentTitle">
+                            <Form.Control type="text" placeholder="Title" />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="newComment">
+                            <Form.Control type="text" placeholder="Comment..." />
+                        </Form.Group>
+                        <Button variant="primary" type="submit">
+                            Submit
+                        </Button>
+                    </Form>
+                </> : <Button variant="primary" onClick={handleOpenComment}>Add Comment</Button>}
             </>
             }
             </div>
