@@ -7,7 +7,7 @@ function AccessCard (access_point){
 
     function handleCardClick(id) {
       navigate(`access/${id}`);
-      console.log('cuhlick')
+      console.log(id)
     }
 
     return (

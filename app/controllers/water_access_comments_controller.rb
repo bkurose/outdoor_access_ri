@@ -1,4 +1,5 @@
 class WaterAccessCommentsController < ApplicationController
+    skip_before_action :authorized, only: [:index, :show]
     def index
         water_access_comments = WaterAccessComment.all
         render json: water_access_comments, status: :ok
@@ -29,7 +30,7 @@ class WaterAccessCommentsController < ApplicationController
     private
 
     def water_access_comment_params
-        params.permit(:user_id, :water_access_point_id, :comment, :comment_title    )
+        params.permit(:user_id, :water_access_point_id, :comment, :comment_title)
     end
 
     def find_water_access_comment

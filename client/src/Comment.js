@@ -7,14 +7,14 @@ import Form from 'react-bootstrap/Form';
 
 
 
-function Comment ({comment, commentUsers}){
+function Comment ({ comment, commentUsers }){
   const [showUpdateForm, setShowUpdateForm] = useState(false)
   const [commentUpdate, setCommentUpdate] = useState({
     "comment": "",
     "comment_title": ""
   })
 
-  const currentUser = useContext(userContext);
+  const currentUser = useContext(userContext); //condition logic needed to display when not logged in
 
   const commentUser = commentUsers.filter((user) => user.id === comment.user_id)
 
@@ -66,7 +66,7 @@ function Comment ({comment, commentUsers}){
           <Card.Body>
             <Card.Title>{comment.comment_title}</Card.Title>
             <Card.Text>
-              {comment.comment}
+              {/* {comment.comment} */}
             </Card.Text>
             {comment.user_id === currentUser.id ? <Button onClick={handleCommentDelete} variant="primary">Delete</Button> : null}
             {comment.user_id === currentUser.id ? <Button onClick={handleOpenUpdate} variant="primary">Update</Button> : null}
