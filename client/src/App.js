@@ -1,6 +1,6 @@
 // import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { useState, createContext, useContext } from "react";
+import { useState, createContext } from "react";
 import Homepage from "./Homepage";
 import WaterAccess from "./WaterAccess";
 import Search from "./Search";
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <userContext.Provider value={user}>
+      <userContext.Provider value={[user, setUser]}>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/access/:id" element={<WaterAccess />} />

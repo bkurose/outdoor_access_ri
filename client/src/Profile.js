@@ -3,7 +3,7 @@ import {userContext} from './App'
 import NavBar from "./NavBar";
 
 function Profile (){
-    const user = useContext(userContext);
+    const [user] = useContext(userContext);
 
     console.log(user)
     return (

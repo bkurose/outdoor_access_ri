@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
@@ -100,6 +100,7 @@ function Signup ({handleLogin}){
               sessionStorage.setItem("login_status", false)
               sessionStorage.setItem("user_data", JSON.stringify(r))
               handleLogin()
+              handleClose()
               alert("Registration Success!")
               navigate(`profile`)
               window.location.reload()
@@ -221,7 +222,7 @@ function Signup ({handleLogin}){
             </Form.Control.Feedback>
           </Form.Group> 
               <Form.Check feedbackType="invalid" feedback="You must agree to the Terms and Conditions to register" required type='checkbox' label={<p>Agree to the <Link to="/legal" target="_blank" rel="noopener noreferrer">Terms and Conditions</Link></p>} />
-          <Button onClick={handleClose} variant="form-submit" type="submit" >
+          <Button variant="form-submit" type="submit" >
           Register
           </Button>
         </Form>

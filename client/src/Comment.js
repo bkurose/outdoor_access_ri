@@ -1,11 +1,8 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import {useContext, useEffect, useState} from "react"
-import {userContext} from './App'
+import { useContext, useState } from "react"
+import { userContext } from './App'
 import Form from 'react-bootstrap/Form';
-
-
-
 
 function Comment ({ comment, commentUsers }){
   const [showUpdateForm, setShowUpdateForm] = useState(false)
@@ -14,7 +11,7 @@ function Comment ({ comment, commentUsers }){
     "comment_title": ""
   })
 
-  const currentUser = useContext(userContext); //condition logic needed to display when not logged in
+  const [user] = useContext(userContext); //condition logic needed to display when not logged in
 
   const commentUser = commentUsers.filter((user) => user.id === comment.user_id)
 
@@ -66,10 +63,10 @@ function Comment ({ comment, commentUsers }){
           <Card.Body>
             <Card.Title>{comment.comment_title}</Card.Title>
             <Card.Text>
-              {/* {comment.comment} */}
-            </Card.Text>
-            {comment.user_id === currentUser.id ? <Button onClick={handleCommentDelete} variant="primary">Delete</Button> : null}
-            {comment.user_id === currentUser.id ? <Button onClick={handleOpenUpdate} variant="primary">Update</Button> : null}
+              {comment.comment}
+            </Card.Text>{user ? 
+            <>{comment.user_id === user.id ? <Button onClick={handleCommentDelete} variant="primary">Delete</Button> : null}
+            {comment.user_id === user.id ? <Button onClick={handleOpenUpdate} variant="primary">Update</Button> : null}</> : null}
             { showUpdateForm ? <Form onSubmit={handleCommentUpdate}>
                         <Button onClick={handleCloseUpdate} style={{"float": "right"}}>X</Button>
                         <Form.Group className="mb-3" controlId="newCommentTitle">

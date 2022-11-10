@@ -10,7 +10,7 @@ function NavBar ({handleUser}){
     const loginStorage = sessionStorage.getItem("login_status")
     const [loginStatus, setLoginStatus] = useState(loginStorage)
 
-    const user = useContext(userContext);
+    const [user] = useContext(userContext);
     
 
     function handleLogin(){
