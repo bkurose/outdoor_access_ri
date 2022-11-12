@@ -82,6 +82,6 @@ test:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
-  database: outdoor_access_ri_production
-  username: outdoor_access_ri
-  password: <%= ENV["OUTDOOR_ACCESS_RI_DATABASE_PASSWORD"] %>
+  # database: outdoor_access_ri_production
+  # username: outdoor_access_ri
+  # password: <%= ENV["OUTDOOR_ACCESS_RI_DATABASE_PASSWORD"] %>
