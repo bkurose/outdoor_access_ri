@@ -7,6 +7,9 @@ import NavBar from './NavBar';
 import Comment from './Comment';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import FileInput from './FileInput';
+import {useContext} from "react";
+import {userContext} from './App';
 
 
 delete L.Icon.Default.prototype._getIconUrl;
@@ -22,6 +25,7 @@ function WaterAccess (){
     const [currentAccess, setCurrentAccess] = useState([])
     const [commentUsers, setCommentUsers] = useState([])
     const [showNewComment, setShowNewComment] = useState(false)
+    const [user] = useContext(userContext);
 
     useEffect(()=> {
         fetch(`/water_access_points/${id}`)
@@ -63,6 +67,7 @@ function WaterAccess (){
     return (
         <div>
             <NavBar />
+            <img src="blob:http://localhost:4000/18e48bb3-51f0-486c-a222-7905e07940a6" />
             {!currentAccess.long ? <h1>loading access point information...</h1> : 
             <>
                 <h1>{currentAccess.name}</h1>
@@ -79,6 +84,7 @@ function WaterAccess (){
                     </Marker>
                 </MapContainer>
                 <a href={`https://www.google.com/maps/dir/?api=1&destination=${currentAccess.lat}%2C${currentAccess.long}`}>Google Navigate Here</a>
+                <FileInput user={user} currentAccess={currentAccess} />
                 <h2>rating: {averageRating()} </h2>
                 <h2>Details:</h2>
                 <p>{currentAccess.details}</p>

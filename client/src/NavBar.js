@@ -24,13 +24,13 @@ function NavBar ({handleUser}){
         <div id="NavBar">
             <Link className="Link" to="/map_overview">Overview</Link>
 
-            <Link className="Link" to="/new_access">New Access</Link>
+            {loginStatus ? <Link className="Link" to="/new_access">New Access</Link> : null}
 
             <Link className="Link" to="/access_rights">Legal Rights</Link>
 
             <Link to="/"><img id="nav_logo" src={require("./OARI_logo.png")} alt="Logo" /></Link>
 
-            {loginStatus ? <><Logout handleLogout={handleLogout}/><p id='login-welcome'>welcome, <Link className="profileLink" to="/profile">{user.first_name}</Link> </p></> : <><Login handleUser={handleUser} handleLogin={handleLogin}/> <Signup handleLogin={handleLogin}/></>}
+            {loginStatus ? <><Logout handleLogout={handleLogout}/><p id='login-welcome'>welcome, <Link className="profileLink" to="/profile"> {user.first_name}</Link> </p></> : <><Login handleUser={handleUser} handleLogin={handleLogin}/> <Signup handleLogin={handleLogin}/></>}
 
         </div>
     )

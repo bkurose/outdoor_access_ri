@@ -1,6 +1,7 @@
 import {useContext} from "react"
 import {userContext} from './App'
 import NavBar from "./NavBar";
+import FileInput from "./FileInput";
 
 function Profile (){
     const [user] = useContext(userContext);
@@ -14,6 +15,7 @@ function Profile (){
             <p>email: {user.email}</p>
             <p>First Name: {user.first_name}</p>
             <p>Last Name: {user.last_name}</p>
+
         </div>
     )
 }

@@ -16,6 +16,8 @@ L.Icon.Default.mergeOptions({
 });
 
 function NewAccess (){
+    const loginStorage = sessionStorage.getItem("login_status")
+    const [loginStatus, setLoginStatus] = useState(loginStorage)
     const [position, setPosition] = useState(null)
     const MapEvents = () => {
         useMapEvents({
@@ -117,9 +119,10 @@ function NewAccess (){
       }
       }
 
-    return (
+    return ( //needs post to collabs, validations
         <div>
             <NavBar />
+            {loginStatus ? <>
             <div id="new_access">
                 <div id='input_container'>
                 <div id='input_map_container'>
@@ -313,6 +316,7 @@ function NewAccess (){
                 </div>
                 </div>
             </div>
+            </> : <h1>Please Login or Register before creating a New Access Point!</h1>}
         </div>
     )
 }

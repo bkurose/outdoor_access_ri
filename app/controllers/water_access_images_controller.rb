@@ -29,7 +29,7 @@ class WaterAccessImagesController < ApplicationController
     private
 
     def water_access_image_params
-        params.permit(:user_id, :water_access_point_id, :file_url)
+        params.permit(:user_id, :water_access_point_id, :myFile)
     end
 
     def find_water_access_image
