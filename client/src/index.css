@@ -19,14 +19,106 @@ code {
 
 }
 
+#rights-image{
+  background-image: url('ian-tuck-tYXDQ1G2jiw-unsplash.jpg');
+  width: 100%;
+  height: 90vh;
+  background-size:cover;
+  background-position: bottom;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#rights-container{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #eff0f2;
+  height: 80vh;
+  border-radius: 30px;
+  padding: 3vw;
+  width: 60vw;
+  margin-left: 20vw;
+  margin-right: 20vw;
+
+}
+
+#new_access{
+  background-image: url('jd-doyle-LUXGm5-XN7M-unsplash.jpg');
+  width: 100%;
+  height: 90vh;
+  background-size:cover;
+}
+
 #map { 
   height: 600px;
   max-width: 90%
 }
 
+#input_map { 
+  height: 80vh;
+  max-width: 40vw;
+  border-radius: 30px;
+}
+
+#input_map:hover { 
+  cursor: pointer;
+}
+
 #map_overview { 
   height: 800px;
   max-width: 50%
+}
+
+#input_map_container{
+  padding-top:5vh;
+  padding-left: 15vw;
+  flex: 1;
+  padding-right: 5vw;
+
+}
+
+#input_container{
+  display:flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-self: center;
+}
+
+#form_container{
+  padding-right: 15vw;
+  flex: 1;
+  padding-left: 5vw;
+  display:flex;
+  justify-content: space-around;
+  flex-direction: column;
+  padding-top:5vh;
+
+  flex: 1;
+
+}
+
+#new_access_form{
+  display:flex;
+  justify-content: space-around;
+  flex-direction: column;
+  background-color: #eff0f2;
+  height: 80vh;
+  border-radius: 30px;
+  padding: 3vw;
+}
+  
+.form_item{
+  flex: 1;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.form_switch{
+
+  margin-bottom: 15px;
+  margin-top: 5px;
 }
 
 #NavBar {
@@ -69,6 +161,18 @@ code {
   padding-left: 20px;
   border-radius: 30px;
   float: right;
+}
+.btn-access-form-submit {
+  background-color: #009BFF;
+  font-family: 'Impact', fantasy;
+  font-size: 20px;
+  color: white;
+  height: 50px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 30px;
+  float: right;
+  margin-bottom: 20px;
 }
 
 .btn-form-submit:hover{

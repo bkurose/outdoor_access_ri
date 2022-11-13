@@ -46,8 +46,8 @@ function WaterAccess (){
     }
 
     function averageRating() {
-        const totalRatings = currentAccess.water_access_ratings.map(rating => rating.rating)
-        return totalRatings.reduce((a, b) => a + b) / totalRatings.length;
+        const totalRatings = currentAccess.water_access_ratings.length ? currentAccess.water_access_ratings.map(rating => rating.rating) : null
+        return totalRatings ? totalRatings.reduce((a, b) => a + b) / totalRatings.length : null;
     }
 
     const outdoorAcessMarker = L.icon({
@@ -55,7 +55,7 @@ function WaterAccess (){
     
         iconSize:     [50, 70], // size of the icon
         shadowSize:   [50, 64], // size of the shadow
-        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        iconAnchor:   [25, 70], // point of the icon which will correspond to marker's location
         shadowAnchor: [4, 62],  // the same for the shadow
         popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
@@ -84,7 +84,7 @@ function WaterAccess (){
                 <p>{currentAccess.details}</p>
                 <h2>Tips:</h2>
                 <p>{currentAccess.tips}</p>
-                {currentAccess.water_access_comments.map(comment => <Comment commentUsers={commentUsers} comment={comment}/>)}
+                {currentAccess.water_access_comments.length ? currentAccess.water_access_comments.map(comment => <Comment commentUsers={commentUsers} comment={comment}/>) : null}
                 {showNewComment ? <>
                     <Form>
                         <Button onClick={handleCloseComment} style={{"float": "right"}}>X</Button>

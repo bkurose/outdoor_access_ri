@@ -31,7 +31,7 @@ function MapView (){
     
         iconSize:     [50, 70], // size of the icon
         shadowSize:   [50, 60], // size of the shadow
-        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        iconAnchor:   [25, 70], // point of the icon which will correspond to marker's location
         shadowAnchor: [4, 62],  // the same for the shadow
         popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });

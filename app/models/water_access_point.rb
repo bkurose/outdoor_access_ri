@@ -8,12 +8,12 @@ class WaterAccessPoint < ApplicationRecord
     validates :name, presence: true, uniqueness: true, length: {minimum: 1, maximum: 240}
     validates :lat, presence: true
     validates :long, presence: true
-    validates :access_type, presence: true
+    validates :access_type, presence: true, length: {minimum: 1, maximum: 128}
     validates :description, presence: true, length: {minimum: 1, maximum: 240}
     validates :town, presence: true
     validates :handicap_accessible, presence: true
     validates :traffic, presence: true
-    validates :details, presence: true
-    validates :parking, presence: true
+    validates :details, presence: true, length: {minimum: 1, maximum: 1000}
+    validates :parking, presence: true, length: {minimum: 1, maximum: 1000}
     #trail_map not included yet
 end
