@@ -9,10 +9,12 @@ function AccessCard (access_point){
       console.log(id)
     }
 
+    console.log(access_point)
+
     return (
         <>
         <Card style={{ width: '25rem' }}>
-            <Card.Img id="card_image" onClick={function(){handleCardClick(access_point.access_point.id)}} variant="top" src="https://upload.wikimedia.org/wikipedia/commons/1/14/Ireland-AtlanticOceanwithAranIsland.jpg" />
+            <Card.Img style={{"object-fit": "cover"}} id="card_image" onClick={function(){handleCardClick(access_point.access_point.id)}} variant="top" src={access_point.access_point.water_access_images.length ? access_point.access_point.water_access_images[0].image_url : "https://upload.wikimedia.org/wikipedia/commons/1/14/Ireland-AtlanticOceanwithAranIsland.jpg"} />
                 <Card.Body>
                 <Card.Title>{access_point.access_point.name}</Card.Title>
                 <Card.Text style={{ fontSize: "20px" }}>

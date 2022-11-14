@@ -10,7 +10,8 @@ import Form from 'react-bootstrap/Form';
 import FileInput from './FileInput';
 import {useContext} from "react";
 import {userContext} from './App';
-
+import ImageUpload from './ImageUpload';
+import RatingsBar from './RatingsBar'
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -26,6 +27,7 @@ function WaterAccess (){
     const [commentUsers, setCommentUsers] = useState([])
     const [showNewComment, setShowNewComment] = useState(false)
     const [user] = useContext(userContext);
+    const reader = new FileReader()
 
     useEffect(()=> {
         fetch(`/water_access_points/${id}`)
@@ -50,9 +52,124 @@ function WaterAccess (){
     }
 
     function averageRating() {
-        const totalRatings = currentAccess.water_access_ratings.length ? currentAccess.water_access_ratings.map(rating => rating.rating) : null
-        return totalRatings ? totalRatings.reduce((a, b) => a + b) / totalRatings.length : null;
+        if(currentAccess.length){
+            if(currentAccess.water_access_ratings.length){
+            const totalRatings = currentAccess.water_access_ratings.map(rating => rating.rating)
+            const averageRate = totalRatings.reduce((a, b) => a + b) / totalRatings.length
+            return Math.round((averageRate+ .5/2)/.5) * .5
+        }}
+        else{ return 0 }
     }
+
+    console.log(typeof(averageRating()))
+
+    function displayStars() {
+        const totalRatings = currentAccess.water_access_ratings.map(rating => rating.rating)
+        const averageRate = totalRatings.reduce((a, b) => a + b) / totalRatings.length
+        const rateRounded = Math.round((averageRate+ .5/2)/.5) * .5
+
+        if (rateRounded == 0)
+            { return <div class="stars">
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+            </div>
+            }
+        else if (rateRounded == .5)
+        { return <div class="stars">
+                <span class="star half"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+            </div>
+            }
+        else if (rateRounded == 1)
+        { return <div class="stars">
+                <span class="star on"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+            </div>
+            }
+        else if (rateRounded == 1.5)
+            { return <div class="stars">
+                    <span class="star on"></span>
+                    <span class="star half"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                </div>
+                }
+        else if (rateRounded == 2)
+        { return <div class="stars">
+                <span class="star on"></span>
+                <span class="star on"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+            </div>
+            }
+        else if (rateRounded == 2.5)
+        { return <div class="stars">
+                <span class="star on"></span>
+                <span class="star on"></span>
+                <span class="star half"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+            </div>
+            }
+        else if (rateRounded == 3)
+        { return <div class="stars">
+                <span class="star on"></span>
+                <span class="star on"></span>
+                <span class="star on"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+            </div>
+            }
+        else if (rateRounded == 3.5)
+        { return <div class="stars">
+                <span class="star on"></span>
+                <span class="star on"></span>
+                <span class="star on"></span>
+                <span class="star half"></span>
+                <span class="star"></span>
+            </div>
+            }
+        else if (rateRounded == 4)
+        { return <div class="stars">
+                <span class="star on"></span>
+                <span class="star on"></span>
+                <span class="star on"></span>
+                <span class="star on"></span>
+                <span class="star"></span>
+            </div>
+            }
+        else if (rateRounded == 4.5)
+        { return <div class="stars">
+                <span class="star on"></span>
+                <span class="star on"></span>
+                <span class="star on"></span>
+                <span class="star on"></span>
+                <span class="star half"></span>
+            </div>
+            }
+        else if (rateRounded == 5){
+            return <div class="stars">
+                <span class="star on"></span>
+                <span class="star on"></span>
+                <span class="star on"></span>
+                <span class="star on"></span>
+                <span class="star on"></span>
+            </div>
+            }
+        
+        
+        }
 
     const outdoorAcessMarker = L.icon({
         iconUrl: require('./outdoorAccessMarker.png'),
@@ -67,7 +184,6 @@ function WaterAccess (){
     return (
         <div>
             <NavBar />
-            <img src="blob:http://localhost:4000/18e48bb3-51f0-486c-a222-7905e07940a6" />
             {!currentAccess.long ? <h1>loading access point information...</h1> : 
             <>
                 <h1>{currentAccess.name}</h1>
@@ -84,8 +200,10 @@ function WaterAccess (){
                     </Marker>
                 </MapContainer>
                 <a href={`https://www.google.com/maps/dir/?api=1&destination=${currentAccess.lat}%2C${currentAccess.long}`}>Google Navigate Here</a>
+                {/* <FileInput user={user} currentAccess={currentAccess} /> */}
                 <FileInput user={user} currentAccess={currentAccess} />
-                <h2>rating: {averageRating()} </h2>
+                <RatingsBar averageRating={averageRating()}/>
+                <h2>rating: {displayStars()} </h2>
                 <h2>Details:</h2>
                 <p>{currentAccess.details}</p>
                 <h2>Tips:</h2>

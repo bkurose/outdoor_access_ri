@@ -1,3 +1,5 @@
 class WaterAccessPointIndexSerializer < ActiveModel::Serializer
-  attributes :id, :description, :town, :trail_map, :name, :lat, :long
+  attributes :id, :description, :town, :name, :lat, :long
+
+  has_many :water_access_images
 end

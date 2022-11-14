@@ -19,7 +19,6 @@ function Homepage (){
         <div>
             <NavBar />
             <SearchBar />
-            <h1>Homepage</h1>
             <div id='example-cards'>
                 {showAccesses.slice(0,3)}
             </div>

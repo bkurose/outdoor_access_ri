@@ -48,4 +48,5 @@ water_access_rating8 = WaterAccessRating.create(user: user3, water_access_point:
 water_access_rating9 = WaterAccessRating.create(user: user4, water_access_point: water_access_point1, rating: 5)
 water_access_rating10 = WaterAccessRating.create(user: user4, water_access_point: water_access_point2, rating: 4)
 
+
 puts "finished seeding data!"

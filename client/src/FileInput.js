@@ -1,45 +1,39 @@
 import React,{Component} from 'react';
 
-
-
-
 class FileInput extends Component {
     
     state = {
       // Initially, no file is selected
-      selectedFile: null,
+      image_url: null,
       user_id: "",
       water_access_id: ""
     };
      
     // On file select (from the pop up)
     onFileChange = event => {
-      this.setState({ selectedFile: event.target.files[0]});
+      let reader = new FileReader();
+      let file = event.target.files[0];
+      reader.onloadend = () => {
+        this.setState({...this.state, image_url: reader.result });
+      };
+      reader.readAsDataURL(file);
+      this.setState({...this.state, user_id: this.props.user.id, water_access_point_id: this.props.currentAccess.id})
     };
      
     // On file upload (click the upload button)
     onFileUpload = () => {
-      // Create an object of formData
-      const formData = {
-        user_id: this.props.user.id,
-        water_access_point_id: this.props.currentAccess.id,
-        myFile: URL.createObjectURL(this.state.selectedFile)
-      };
-
-     
       // Details of the uploaded file
-      console.log(this.state.selectedFile);
+      console.log(this.state.imagePreviewUrl);
       console.log(this.props.user)
      
       // Request made to the backend api
-      // Send formData object
       fetch('/water_access_images', {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json" 
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(this.state)
       })
       .then(res => res.json())
       .then(data => {
@@ -48,7 +42,7 @@ class FileInput extends Component {
       
       
     };
-     
+  
     // File content to be displayed after
     // file upload is complete
     fileData = () => {
@@ -79,18 +73,16 @@ class FileInput extends Component {
       }
     };
 
-    
-     
     render() {
      
       return (
         <div>
             <h1>
-              GeeksforGeeks
+              Upload an Image!
             </h1>
-            <h3>
-              File Upload using React!
-            </h3>
+            <p>
+              Image Upload powered by Geeks4Geeks
+            </p>
             <div>
                 <input type="file" onChange={this.onFileChange} />
                 <button onClick={this.onFileUpload}>

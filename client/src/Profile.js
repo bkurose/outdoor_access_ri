@@ -1,7 +1,6 @@
 import {useContext} from "react"
 import {userContext} from './App'
 import NavBar from "./NavBar";
-import FileInput from "./FileInput";
 
 function Profile (){
     const [user] = useContext(userContext);

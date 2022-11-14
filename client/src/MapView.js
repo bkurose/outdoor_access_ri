@@ -54,7 +54,7 @@ function MapView (){
                     {allAccesses.map((access) => 
                     <Marker icon={outdoorAcessMarker} position={[access.lat, access.long]}>
                         <Popup >
-                            <img id="card_image" src="https://upload.wikimedia.org/wikipedia/commons/1/14/Ireland-AtlanticOceanwithAranIsland.jpg" onClick={()=> handleOnClick(access.id)} />
+                            <img style={{"width": "300px"}} id="card_image" src={access.water_access_images.length ? access.water_access_images[0].image_url : "https://upload.wikimedia.org/wikipedia/commons/1/14/Ireland-AtlanticOceanwithAranIsland.jpg"} onClick={()=> handleOnClick(access.id)} />
                             <b>{access.name}: </b>  
                             {access.description}
                         </Popup>
