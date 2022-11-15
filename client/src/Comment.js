@@ -58,10 +58,12 @@ function Comment ({ comment, commentUsers }){
   console.log(commentUser)
 
     return (
-        <Card  style={{"border-radius": "30px"}}>
-          <Card.Header style={{"font-size": "35px"}}>Comment by: <b>{commentUser.length ? <>{commentUser[0].username}</> : null}</b> </Card.Header>  
+        <Card  style={{"border-radius": "30px", "padding": "10px", "margin-bottom": "20px"}}>
           <Card.Body style={{"background-color": "#009BFF", "color": "white", "font-size": "25px", "border-radius": "30px"}}>
-            <Card.Title>{comment.comment_title}</Card.Title>
+            <Card.Title  style={{"font-size": "35px"}}><b>{comment.comment_title}</b></Card.Title>
+            <Card.Text style={{"font-size": "25px"}}>
+            Comment by: <b>{commentUser.length ? <>{commentUser[0].username}</> : null}</b> 
+            </Card.Text>
             <Card.Text>
               {comment.comment}
             </Card.Text>{user ? 

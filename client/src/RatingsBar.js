@@ -34,13 +34,14 @@ function RatingsBar({ user, access }) {
     <>
     {show ? <div className='App'>
       <Rating
+        style={{"margin-top": "-20px"}}
         onClick={handleRating}
         onPointerEnter={onPointerEnter}
         onPointerLeave={onPointerLeave}
         onPointerMove={onPointerMove}
         /* Available Props */
       />
-    </div> : <h2>Thank you for submitting a rating!</h2>}
+    </div> : <p>Thank you for submitting a rating!</p>}
     </>
   )
 }

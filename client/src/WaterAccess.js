@@ -13,6 +13,7 @@ import {userContext} from './App';
 import ImageUpload from './ImageUpload';
 import RatingsBar from './RatingsBar'
 import Carousel from 'react-bootstrap/Carousel';
+import Card from 'react-bootstrap/Card';
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -249,13 +250,19 @@ function WaterAccess (){
                     {currentAccess.handicap_accessible ? <div class="iconDiv"><span class="infoIcon">♿✔️</span><p>Handicap Accessible</p></div> : <div class="iconDiv"><span class="infoIcon">♿❌</span><p>Not Handicap Accessible</p></div>}
                     {currentAccess.bathrooms ? <div class="iconDiv"><span class="infoIcon">🚻✔️</span><p>Bathrooms on Site</p></div> : <div class="iconDiv"><span class="infoIcon">🚻❌</span><p>No Bathrooms</p></div>}
                     {currentAccess.fee ? <div class="iconDiv"><span class="infoIcon">💲</span><p>Fee to Go Here</p></div> : <div class="iconDiv"><span class="infoIcon">🆓</span><p>Free to Go Here</p></div> }
+                    {currentAccess.traffic === "light" ? <div class="iconDiv"><span style={{"color": "green"}} class="infoIcon">🚗</span><p>Light Traffic</p></div> : null}
+                    {currentAccess.traffic === "medium" ? <div class="iconDiv"><span style={{"color": "yellow"}} class="infoIcon">🚗🚗</span><p>Medium Traffic</p></div> : null}
+                    {currentAccess.traffic === "heavy" ? <div class="iconDiv"><span style={{"color": "red"}} class="infoIcon">🚗🚗🚗</span><p>Heavy Traffic</p></div> : null}
                     <div class="iconDiv"><a class='infoIcon' href={`https://www.google.com/maps/dir/?api=1&destination=${currentAccess.lat}%2C${currentAccess.long}`}>🧭</a><p>Google Navigate Here</p></div>
                 </div>
 
                 <div style={{"background-color": "rgb(0, 161, 214)", "padding": "20px"}}>
                 {showInput ? <FileInput user={user} currentAccess={currentAccess} loggedIn={loginStatus}/> : <Button onClick={handleShowInput} variant='rating'>Add an Image</Button>}
-                <h2 style={{"font-size": "30px", "font-style": "Arial", "color": "#eff0f2"}}>Details:</h2>
-                <p style={{"font-size": "20px", "font-style": "Arial", "color": "#eff0f2"}}>{currentAccess.details}</p>
+
+                <h2 style={{"font-size": "30px", "font-style": "Arial", "color": "#eff0f2"}}>Town: {currentAccess.town}</h2>
+                <p style={{"font-size": "30px", "font-style": "Arial", "color": "#eff0f2"}}>{currentAccess.details}</p>
+                <h2 style={{"font-size": "30px", "font-style": "Arial", "color": "#eff0f2"}}>Parking:</h2>
+                <p style={{"font-size": "30px", "font-style": "Arial", "color": "#eff0f2"}}>{currentAccess.parking}</p>
                 </div>
                 
                 
@@ -265,6 +272,7 @@ function WaterAccess (){
                 <p>{currentAccess.tips}</p>
                 {currentAccess.water_access_comments.length ? currentAccess.water_access_comments.map(comment => <Comment commentUsers={commentUsers} comment={comment}/>) : null}
                 {showNewComment ? <>
+                    <Card  style={{"border-radius": "30px", "padding": "10px", "margin-bottom": "20px", "background-color": "#009BFF"}}>
                     <Form>
                         <Button variant="rating" onClick={handleCloseComment} style={{"float": "right"}}>X</Button>
                         <Form.Group className="mb-3" controlId="newCommentTitle">
@@ -278,6 +286,7 @@ function WaterAccess (){
                             Submit
                         </Button>
                     </Form>
+                    </Card>
                 </> : <Button  variant="rating" onClick={handleOpenComment}>Add Comment</Button>}
                 
             </>
