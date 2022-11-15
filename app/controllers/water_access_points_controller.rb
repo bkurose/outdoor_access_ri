@@ -30,7 +30,7 @@ class WaterAccessPointsController < ApplicationController
     private
 
     def water_access_point_params
-        params.permit(:id, :name, :parking, :lat, :long, :access_type, :description, :dogs, :town, :trail_map, :handicap_accessible, :details, :traffic)
+        params.permit(:id, :name, :parking, :lat, :long, :access_type, :description, :dogs, :town, :trail_map, :handicap_accessible, :details, :traffic, :bathhrooms, :fee)
     end
 
     def find_water_access_point

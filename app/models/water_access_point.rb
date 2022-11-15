@@ -13,7 +13,9 @@ class WaterAccessPoint < ApplicationRecord
     validates :town, presence: true
     validates :handicap_accessible, presence: true
     validates :traffic, presence: true
-    validates :details, presence: true, length: {minimum: 1, maximum: 1000}
+    validates :details, presence: true, length: {minimum: 1, maximum: 3000}
     validates :parking, presence: true, length: {minimum: 1, maximum: 1000}
+    # validates :fee, presence: true
+    # validates :bathrooms, presence: true
     #trail_map not included yet
 end

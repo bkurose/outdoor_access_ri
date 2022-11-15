@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_02_170611) do
     t.string "password_digest"
     t.string "username"
     t.string "email"
+    t.string "profile_pic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -62,6 +63,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_02_170611) do
     t.string "details"
     t.string "traffic"
     t.string "parking"
+    t.boolean "bathrooms"
+    t.boolean "fee"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

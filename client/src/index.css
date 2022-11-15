@@ -53,7 +53,7 @@ code {
 
 #map { 
   height: 600px;
-  max-width: 90%
+  max-width: 100vw;
 }
 
 #input_map { 
@@ -117,8 +117,8 @@ code {
 
 .form_switch{
 
-  margin-bottom: 15px;
-  margin-top: 5px;
+  margin-bottom: 7px;
+  margin-top: 7px;
 }
 
 #NavBar {
@@ -268,7 +268,6 @@ code {
   font-style: bold;
   font-size: 40px;
   color: rgb(0, 103, 134);
-
   text-decoration: none;
 }
 
@@ -294,4 +293,24 @@ code {
   margin-left: -42px;
   width: 20px;
   overflow: hidden;
+}
+
+#infoBar{
+  background-color: rgb(0, 161, 214);
+  height: 110px;
+  display: flex;
+  justify-content:space-around;
+}
+
+.infoIcon{
+  font-size: 50px;
+  text-decoration: none;
+}
+
+.iconDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  text-align: center;
+
 }

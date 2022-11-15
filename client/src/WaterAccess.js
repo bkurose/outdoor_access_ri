@@ -68,7 +68,7 @@ function WaterAccess (){
         const averageRate = totalRatings.reduce((a, b) => a + b) / totalRatings.length
         const rateRounded = Math.round((averageRate+ .5/2)/.5) * .5
 
-        if (rateRounded == 0)
+        if (rateRounded === 0)
             { return <div class="stars">
                 <span class="star"></span>
                 <span class="star"></span>
@@ -77,7 +77,7 @@ function WaterAccess (){
                 <span class="star"></span>
             </div>
             }
-        else if (rateRounded == .5)
+        else if (rateRounded === .5)
         { return <div class="stars">
                 <span class="star half"></span>
                 <span class="star"></span>
@@ -86,7 +86,7 @@ function WaterAccess (){
                 <span class="star"></span>
             </div>
             }
-        else if (rateRounded == 1)
+        else if (rateRounded === 1)
         { return <div class="stars">
                 <span class="star on"></span>
                 <span class="star"></span>
@@ -95,7 +95,7 @@ function WaterAccess (){
                 <span class="star"></span>
             </div>
             }
-        else if (rateRounded == 1.5)
+        else if (rateRounded === 1.5)
             { return <div class="stars">
                     <span class="star on"></span>
                     <span class="star half"></span>
@@ -104,7 +104,7 @@ function WaterAccess (){
                     <span class="star"></span>
                 </div>
                 }
-        else if (rateRounded == 2)
+        else if (rateRounded === 2)
         { return <div class="stars">
                 <span class="star on"></span>
                 <span class="star on"></span>
@@ -113,7 +113,7 @@ function WaterAccess (){
                 <span class="star"></span>
             </div>
             }
-        else if (rateRounded == 2.5)
+        else if (rateRounded === 2.5)
         { return <div class="stars">
                 <span class="star on"></span>
                 <span class="star on"></span>
@@ -122,7 +122,7 @@ function WaterAccess (){
                 <span class="star"></span>
             </div>
             }
-        else if (rateRounded == 3)
+        else if (rateRounded === 3)
         { return <div class="stars">
                 <span class="star on"></span>
                 <span class="star on"></span>
@@ -131,7 +131,7 @@ function WaterAccess (){
                 <span class="star"></span>
             </div>
             }
-        else if (rateRounded == 3.5)
+        else if (rateRounded === 3.5)
         { return <div class="stars">
                 <span class="star on"></span>
                 <span class="star on"></span>
@@ -140,7 +140,7 @@ function WaterAccess (){
                 <span class="star"></span>
             </div>
             }
-        else if (rateRounded == 4)
+        else if (rateRounded === 4)
         { return <div class="stars">
                 <span class="star on"></span>
                 <span class="star on"></span>
@@ -149,7 +149,7 @@ function WaterAccess (){
                 <span class="star"></span>
             </div>
             }
-        else if (rateRounded == 4.5)
+        else if (rateRounded === 4.5)
         { return <div class="stars">
                 <span class="star on"></span>
                 <span class="star on"></span>
@@ -158,7 +158,7 @@ function WaterAccess (){
                 <span class="star half"></span>
             </div>
             }
-        else if (rateRounded == 5){
+        else if (rateRounded === 5){
             return <div class="stars">
                 <span class="star on"></span>
                 <span class="star on"></span>
@@ -199,8 +199,15 @@ function WaterAccess (){
                         </Popup>
                     </Marker>
                 </MapContainer>
+                <div id='infoBar'>
+                    {currentAccess.dogs ? <div class="iconDiv"><span class="infoIcon">🐕✔️</span><p>Dog Allowed</p></div>: <div class="iconDiv"><span class="infoIcon">🐕❌</span><p>Dogs Not Allowed</p></div>}
+                    {currentAccess.handicap_accessible ? <div class="iconDiv"><span class="infoIcon">♿✔️</span><p>Handicap Accessible</p></div> : <div class="iconDiv"><span class="infoIcon">♿❌</span><p>Not Handicap Accessible</p></div>}
+                    {currentAccess.bathrooms ? <div class="iconDiv"><span class="infoIcon">🚻✔️</span><p>Bathrooms on Site</p></div> : <div class="iconDiv"><span class="infoIcon">🚻❌</span><p>No Bathrooms</p></div>}
+                    {currentAccess.fee ? <div class="iconDiv"><span class="infoIcon">💲</span><p>Fee to Go Here</p></div> : <div class="iconDiv"><span class="infoIcon">🆓</span><p>Free to Go Here</p></div> }
+                    <div class="iconDiv"><a class='infoIcon' href={`https://www.google.com/maps/dir/?api=1&destination=${currentAccess.lat}%2C${currentAccess.long}`}>🧭</a><p>Google Navigate Here</p></div>
+
+                </div>
                 <a href={`https://www.google.com/maps/dir/?api=1&destination=${currentAccess.lat}%2C${currentAccess.long}`}>Google Navigate Here</a>
-                {/* <FileInput user={user} currentAccess={currentAccess} /> */}
                 <FileInput user={user} currentAccess={currentAccess} />
                 <RatingsBar averageRating={averageRating()}/>
                 <h2>rating: {displayStars()} </h2>

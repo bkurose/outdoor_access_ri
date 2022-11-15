@@ -13,6 +13,8 @@ class CreateWaterAccessPoints < ActiveRecord::Migration[7.0]
       t.string :details
       t.string :traffic
       t.string :parking
+      t.boolean :bathrooms
+      t.boolean :fee
 
       t.timestamps
     end

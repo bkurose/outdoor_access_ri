@@ -47,7 +47,9 @@ function NewAccess (){
         parking: "",
         details: "",
         description: "",
-        trail_map: ""
+        trail_map: "",
+        bathrooms: false,
+        fee: false,
     });
 
     const [validated, setValidated] = useState(false);
@@ -306,8 +308,30 @@ function NewAccess (){
                         name="dogs"
                         value={accessData.dogs}
                         onChange={handleOnChange}
-                        style={{"margin-top": "0"}}
+
                     />
+                    </Form.Group>
+                    <Form.Group className="form_switch" >
+                    <Form.Check 
+                        type="switch"
+                        id="bathrooms-switch"
+                        label="Public Restrooms?"
+                        name="bathrooms"
+                        value={accessData.bathrooms}
+                        onChange={handleOnChange}
+
+                    />
+                    <Form.Group className="form_switch" >
+                    <Form.Check 
+                        type="switch"
+                        id="fee-switch"
+                        label="Is there a fee to come here?"
+                        name="fee"
+                        value={accessData.fee}
+                        onChange={handleOnChange}
+                        style={{"margin-bottom": "10px"}}
+                    />
+                    </Form.Group>
                     </Form.Group>
                     <Button variant="access-form-submit" type="submit" >
                         Add New Access Point
