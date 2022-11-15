@@ -76,7 +76,8 @@ class FileInput extends Component {
     render() {
      
       return (
-        <div>
+        <div style={{"text-align":"center"}}>
+          {this.props.loggedIn ? <>
             <h1>
               Upload an Image!
             </h1>
@@ -90,6 +91,7 @@ class FileInput extends Component {
                 </button>
             </div>
           {this.fileData()}
+          </> : <h1>Please Login to Upload Images or Leave a Comment!</h1>}
         </div>
       );
     }

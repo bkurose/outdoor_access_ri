@@ -12,6 +12,7 @@ import {useContext} from "react";
 import {userContext} from './App';
 import ImageUpload from './ImageUpload';
 import RatingsBar from './RatingsBar'
+import Carousel from 'react-bootstrap/Carousel';
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -27,13 +28,18 @@ function WaterAccess (){
     const [commentUsers, setCommentUsers] = useState([])
     const [showNewComment, setShowNewComment] = useState(false)
     const [user] = useContext(userContext);
-    const reader = new FileReader()
+    // const reader = new FileReader()
+    const [showRating, setShowRating] = useState(false)
+    const loginStorage = sessionStorage.getItem("login_status")
+    const [loginStatus, setLoginStatus] = useState(loginStorage)
+    const [showInput, setShowInput] = useState(false)
 
     useEffect(()=> {
         fetch(`/water_access_points/${id}`)
         .then(access => access.json())
         .then(access => {
             setCurrentAccess(access)
+            console.log(access.water_access_images[0])
         })
         fetch('/users')
         .then(res => res.json())
@@ -45,7 +51,10 @@ function WaterAccess (){
     console.log(currentAccess)
 
     function handleOpenComment(){
-        setShowNewComment(true)
+        if(loginStatus){
+            setShowNewComment(true)
+        }
+        else{alert("Please Login before adding any comments!")}
     }
     function handleCloseComment(){
         setShowNewComment(false)
@@ -181,13 +190,27 @@ function WaterAccess (){
         popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
 
+    function handleShowRating(){
+        if(loginStatus){
+        setShowRating(!showRating)}
+        else{alert("Please Login to leave a Rating!")}
+    }
+    
+    function handleShowInput(){
+        setShowInput(true)
+    }
+    console.log(currentAccess.water_access_images)
     return (
         <div>
             <NavBar />
             {!currentAccess.long ? <h1>loading access point information...</h1> : 
             <>
-                <h1>{currentAccess.name}</h1>
-                <MapContainer id="map" center={[currentAccess.lat, currentAccess.long]} zoom={14} scrollWheelZoom={false}>
+                
+                <div style={{display: "flex", "align-items": "baseline"}}><h1>{currentAccess.name}</h1>{showRating ? <RatingsBar user={user} access={currentAccess}/> : <>{displayStars()} <Button onClick={handleShowRating} variant="rating" >Add a Rating</Button></>} </div>
+
+                <Carousel variant='dark' controls={true}  style={{height: "900px", "background-color": "#eff0f2"}}>
+                    <Carousel.Item>
+                    <MapContainer id="map" center={[currentAccess.lat, currentAccess.long]} zoom={14} scrollWheelZoom={false}>
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -198,27 +221,52 @@ function WaterAccess (){
                             {currentAccess.description}
                         </Popup>
                     </Marker>
-                </MapContainer>
+                </MapContainer> 
+                    </Carousel.Item>
+                    {currentAccess.water_access_images.length ? 
+                        currentAccess.water_access_images.map((image)=> 
+                            <Carousel.Item style={{"max-height": "850px", "object-fit": "contain"}}>
+                                <img
+                                style={{"height": "850px", "max-width": "100vw", "object-fit": "cover"}}
+                                className="d-block w-100"
+                                src={image.image_url}
+                                alt="Picture"
+                                />
+                            </Carousel.Item>
+                        ) : <Carousel.Item style={{"max-height": "850px", "object-fit": "contain"}}>
+                        <img                        
+                        className="d-block w-100"
+                        style={{"max-height": "850", "object-fit": "cover"}}
+                        src={require("./DefaultPic.jpg")}
+                        alt="Add Picture"
+                        />
+                    </Carousel.Item> }
+                    
+                </Carousel>
+
                 <div id='infoBar'>
                     {currentAccess.dogs ? <div class="iconDiv"><span class="infoIcon">🐕✔️</span><p>Dog Allowed</p></div>: <div class="iconDiv"><span class="infoIcon">🐕❌</span><p>Dogs Not Allowed</p></div>}
                     {currentAccess.handicap_accessible ? <div class="iconDiv"><span class="infoIcon">♿✔️</span><p>Handicap Accessible</p></div> : <div class="iconDiv"><span class="infoIcon">♿❌</span><p>Not Handicap Accessible</p></div>}
                     {currentAccess.bathrooms ? <div class="iconDiv"><span class="infoIcon">🚻✔️</span><p>Bathrooms on Site</p></div> : <div class="iconDiv"><span class="infoIcon">🚻❌</span><p>No Bathrooms</p></div>}
                     {currentAccess.fee ? <div class="iconDiv"><span class="infoIcon">💲</span><p>Fee to Go Here</p></div> : <div class="iconDiv"><span class="infoIcon">🆓</span><p>Free to Go Here</p></div> }
                     <div class="iconDiv"><a class='infoIcon' href={`https://www.google.com/maps/dir/?api=1&destination=${currentAccess.lat}%2C${currentAccess.long}`}>🧭</a><p>Google Navigate Here</p></div>
-
                 </div>
-                <a href={`https://www.google.com/maps/dir/?api=1&destination=${currentAccess.lat}%2C${currentAccess.long}`}>Google Navigate Here</a>
-                <FileInput user={user} currentAccess={currentAccess} />
-                <RatingsBar averageRating={averageRating()}/>
-                <h2>rating: {displayStars()} </h2>
-                <h2>Details:</h2>
-                <p>{currentAccess.details}</p>
-                <h2>Tips:</h2>
+
+                <div style={{"background-color": "rgb(0, 161, 214)", "padding": "20px"}}>
+                {showInput ? <FileInput user={user} currentAccess={currentAccess} loggedIn={loginStatus}/> : <Button onClick={handleShowInput} variant='rating'>Add an Image</Button>}
+                <h2 style={{"font-size": "30px", "font-style": "Arial", "color": "#eff0f2"}}>Details:</h2>
+                <p style={{"font-size": "20px", "font-style": "Arial", "color": "#eff0f2"}}>{currentAccess.details}</p>
+                </div>
+                
+                
+                
+
+                <h2>Comments:</h2>
                 <p>{currentAccess.tips}</p>
                 {currentAccess.water_access_comments.length ? currentAccess.water_access_comments.map(comment => <Comment commentUsers={commentUsers} comment={comment}/>) : null}
                 {showNewComment ? <>
                     <Form>
-                        <Button onClick={handleCloseComment} style={{"float": "right"}}>X</Button>
+                        <Button variant="rating" onClick={handleCloseComment} style={{"float": "right"}}>X</Button>
                         <Form.Group className="mb-3" controlId="newCommentTitle">
                             <Form.Control type="text" placeholder="Title" />
                         </Form.Group>
@@ -226,11 +274,12 @@ function WaterAccess (){
                         <Form.Group className="mb-3" controlId="newComment">
                             <Form.Control type="text" placeholder="Comment..." />
                         </Form.Group>
-                        <Button variant="primary" type="submit">
+                        <Button  variant="rating" type="submit">
                             Submit
                         </Button>
                     </Form>
-                </> : <Button variant="primary" onClick={handleOpenComment}>Add Comment</Button>}
+                </> : <Button  variant="rating" onClick={handleOpenComment}>Add Comment</Button>}
+                
             </>
             }
             </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
 
-function RatingsBar() {
+function RatingsBar({ user, access }) {
   const [rating, setRating] = useState(0)
   const [show, setShow] = useState(true)
 
@@ -9,6 +9,19 @@ function RatingsBar() {
   const handleRating = (rate: number) => {
     setRating(rate)
     setShow(false)
+    fetch("/water_access_ratings", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: user.id,
+        water_access_point_id: access.id,
+        rating: rate,
+      })})
+    .then(res => res.json())
+    .then(rating => console.log(rating))
+  
 
     // other logic
   }

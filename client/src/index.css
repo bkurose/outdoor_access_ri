@@ -52,7 +52,7 @@ code {
 }
 
 #map { 
-  height: 600px;
+  height: 850px;
   max-width: 100vw;
 }
 
@@ -143,6 +143,21 @@ code {
   float: right;
   margin-right: 25px;
   margin-top: 40px;
+  margin-bottom: 5px;
+}
+.btn-rating {
+  background-color: #009BFF;
+  font-family: 'Impact', fantasy;
+  font-size: 20px;
+  color: white;
+  height: 45px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 30px;
+
+  float: right;
+  margin-right: 25px;
+  margin-top: 5px;
   margin-bottom: 5px;
 }
 
@@ -313,4 +328,8 @@ code {
   justify-content: baseline;
   text-align: center;
 
+}
+
+#carouselImage{
+  object-fit: "contain";
 }

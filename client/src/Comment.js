@@ -58,15 +58,15 @@ function Comment ({ comment, commentUsers }){
   console.log(commentUser)
 
     return (
-        <Card>
-          <Card.Header>Comment by: {commentUser.length ? <>{commentUser[0].username}</> : null} </Card.Header>  
-          <Card.Body>
+        <Card  style={{"border-radius": "30px"}}>
+          <Card.Header style={{"font-size": "35px"}}>Comment by: <b>{commentUser.length ? <>{commentUser[0].username}</> : null}</b> </Card.Header>  
+          <Card.Body style={{"background-color": "#009BFF", "color": "white", "font-size": "25px", "border-radius": "30px"}}>
             <Card.Title>{comment.comment_title}</Card.Title>
             <Card.Text>
               {comment.comment}
             </Card.Text>{user ? 
-            <>{comment.user_id === user.id ? <Button onClick={handleCommentDelete} variant="primary">Delete</Button> : null}
-            {comment.user_id === user.id ? <Button onClick={handleOpenUpdate} variant="primary">Update</Button> : null}</> : null}
+            <>{comment.user_id === user.id ? <Button onClick={handleCommentDelete}  variant="rating">Delete</Button> : null}
+            {comment.user_id === user.id ? <Button onClick={handleOpenUpdate}  variant="rating">Update</Button> : null}</> : null}
             { showUpdateForm ? <Form onSubmit={handleCommentUpdate}>
                         <Button onClick={handleCloseUpdate} style={{"float": "right"}}>X</Button>
                         <Form.Group className="mb-3" controlId="newCommentTitle">
