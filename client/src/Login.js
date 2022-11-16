@@ -37,7 +37,7 @@ function Login ({handleLogin}){
                     sessionStorage.setItem("user_data", JSON.stringify(r))
                     handleLogin()
                     alert("Login Success!")
-                    navigate(`/profile`)
+                    navigate(`/`)
                     window.location.reload()
                 })
             }else{res.json().then(json => console.log(json.errors))} 

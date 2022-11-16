@@ -6,6 +6,7 @@ import L from 'leaflet';
 import { useMapEvents } from 'react-leaflet/hooks'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import FooterNav from './FooterNav';
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -75,28 +76,6 @@ function NewAccess (){
     });
     function handleSubmit(e){
         const form = e.currentTarget;
-    
-        // if(usernames.includes(userData.username)){
-        //   e.preventDefault();
-        //   e.stopPropagation();
-        //   alert("Username already taken!" )
-        //   setValidated(true)
-        // }
-    
-        // else if(emails.includes(userData.email)){
-        //   e.preventDefault();
-        //   e.stopPropagation();
-        //   alert("Email already taken!" )
-        //   setValidated(true)
-        // }
-    
-        // else if (userData.password !== userData.password_confirmation){
-        //   e.preventDefault();
-        //   e.stopPropagation();
-        //   alert("Passwords do not match!" )
-        //   setValidated(true)
-        // }
-        // else 
         if (form.checkValidity() === false) {
           e.preventDefault();
           e.stopPropagation();
@@ -279,7 +258,7 @@ function NewAccess (){
                         type="text"
                         placeholder="Access type? (ROW, park, dock)"
                         autoFocus
-                        name="access_type"
+                        name="type"
                         value={accessData.access_type}
                         onChange={handleOnChange}
                         required
@@ -341,6 +320,7 @@ function NewAccess (){
                 </div>
             </div>
             </> : <h1>Please Login or Register before creating a New Access Point!</h1>}
+            <FooterNav />
         </div>
     )
 }

@@ -10,11 +10,12 @@ import Legal from "./Legal";
 import MapView from './MapView'
 import Rights from './Rights'
 
-export const userContext = createContext()
+export const appContext = createContext()
 
 function App() {
   const userStorage = sessionStorage.user_data ? JSON.parse(sessionStorage.user_data) : null
   const [user, setUser] = useState(userStorage)
+  const [searchQuery, setSearchQuery] = useState("")
 
   console.log(user)
 
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <userContext.Provider value={[user, setUser]}>
+      <appContext.Provider value={{user: [user, setUser], searchQuery: [searchQuery, setSearchQuery]}}>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/access/:id" element={<WaterAccess />} />
@@ -33,7 +34,7 @@ function App() {
         <Route path='/map_overview' element={<MapView />} />
         <Route path='/access_rights' element={<Rights />} />
       </Routes>
-      </userContext.Provider>
+      </appContext.Provider>
     </div>
   );
 }

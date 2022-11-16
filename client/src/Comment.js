@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useContext, useState } from "react"
-import { userContext } from './App'
+import { appContext } from './App'
 import Form from 'react-bootstrap/Form';
 
 function Comment ({ comment, commentUsers }){
@@ -11,7 +11,8 @@ function Comment ({ comment, commentUsers }){
     "comment_title": ""
   })
 
-  const [user] = useContext(userContext); //condition logic needed to display when not logged in
+  const { user } = useContext(appContext)
+  const [userValue, setUserValue] = user;
 
   const commentUser = commentUsers.filter((user) => user.id === comment.user_id)
 
@@ -66,9 +67,9 @@ function Comment ({ comment, commentUsers }){
             </Card.Text>
             <Card.Text>
               {comment.comment}
-            </Card.Text>{user ? 
-            <>{comment.user_id === user.id ? <Button onClick={handleCommentDelete}  variant="rating">Delete</Button> : null}
-            {comment.user_id === user.id ? <Button onClick={handleOpenUpdate}  variant="rating">Update</Button> : null}</> : null}
+            </Card.Text>{userValue ? 
+            <>{comment.user_id === userValue.id ? <Button onClick={handleCommentDelete}  variant="rating">Delete</Button> : null}
+            {comment.user_id === userValue.id ? <Button onClick={handleOpenUpdate}  variant="rating">Update</Button> : null}</> : null}
             { showUpdateForm ? <Form onSubmit={handleCommentUpdate}>
                         <Button onClick={handleCloseUpdate} style={{"float": "right"}}>X</Button>
                         <Form.Group className="mb-3" controlId="newCommentTitle">

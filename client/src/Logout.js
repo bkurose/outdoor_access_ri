@@ -1,10 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react"
-import { userContext } from './App'
+import { appContext } from './App'
 
 function Logout ({handleLogout}){
-    const [user, setUser] = useContext(userContext)
+    const { user } = useContext(appContext)
+    const [userValue, setUserValue] = user;
 
     let navigate = useNavigate();
 
@@ -14,7 +15,7 @@ function Logout ({handleLogout}){
             sessionStorage.removeItem("login_status")
             sessionStorage.removeItem("user_data")
             handleLogout()
-            setUser({})
+            setUserValue({})
             alert("Logout successful!")
             navigate(`/`)
         })

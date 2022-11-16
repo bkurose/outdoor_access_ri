@@ -5,11 +5,9 @@ function AccessCard (access_point){
     let navigate = useNavigate();
 
     function handleCardClick(id) {
-      navigate(`access/${id}`);
+      navigate(`/access/${id}`);
       console.log(id)
     }
-
-    console.log(access_point)
 
     function displayStars() {
         const totalRatings = access_point.access_point.water_access_ratings.map(rating => rating.rating)

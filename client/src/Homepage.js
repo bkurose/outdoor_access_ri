@@ -4,6 +4,7 @@ import NavBar from "./NavBar"
 import SearchBar from './SearchBar';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import FooterNav from './FooterNav';
 
 function Homepage (){    
     const [accesses, setAccesses] = useState([])
@@ -12,7 +13,8 @@ function Homepage (){
         desktop: {
           breakpoint: { max: 3000, min: 1024 },
           items: 4,
-          slidesToSlide: 2 // optional, default to 1.
+          slidesToSlide: 1, // optional, default to 1.
+          partialVisibilityGutter: 40
         },
         tablet: {
           breakpoint: { max: 1024, min: 464 },
@@ -38,16 +40,18 @@ function Homepage (){
     return (
         <div>
             <NavBar />
+            <div id="search_background">
             <SearchBar />
+            </div>
             <Carousel
                 swipeable={false}
                 draggable={false}
+                autoPlaySpeed={3000}
                 showDots={true}
                 responsive={responsive}
-                infinite={true}
-                autoPlaySpeed={1000}
                 keyBoardControl={true}
-                customTransition="all .5"
+                rewind={true}
+                rewindWithAnimation={true}
                 transitionDuration={500}
                 containerClass="carousel-container"
                 dotListClass="custom-dot-list-style"
@@ -63,6 +67,7 @@ function Homepage (){
                 <div>{showAccesses[7]}</div>
                 <div>{showAccesses[8]}</div>
             </Carousel>;
+            <FooterNav />
         </div>
     )
 }

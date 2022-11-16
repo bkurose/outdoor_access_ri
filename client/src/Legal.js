@@ -1,6 +1,9 @@
+import NavBar from "./NavBar"
+
 function Legal (){
     return (
         <>
+            <NavBar />
             <h1 style={{"font-size": '50px'}}>Terms of Use:</h1>
             <br/>
             <p  style={{"font-size": '25px'}}>

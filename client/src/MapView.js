@@ -4,6 +4,7 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet';
 import { useNavigate } from "react-router-dom";
+import FooterNav from './FooterNav';
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -43,10 +44,9 @@ function MapView (){
     return (
         <div>
             <NavBar />
-            <h1>Map Overview:</h1>
             {allAccesses.length ?  
             <>
-                <MapContainer id="map_overview" center={[41.650052, -71.468812]} zoom={10} scrollWheelZoom={false}>
+                <MapContainer id="map_overview" center={[41.650052, -71.468812]} zoom={10} scrollWheelZoom={true}>
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -61,6 +61,7 @@ function MapView (){
                     </Marker> )}
                 </MapContainer>
             </> : <h1>loading access point information...</h1>}
+            <FooterNav />
         </div>
     )
 }

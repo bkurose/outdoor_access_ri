@@ -9,11 +9,11 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FileInput from './FileInput';
 import {useContext} from "react";
-import {userContext} from './App';
-import ImageUpload from './ImageUpload';
+import { appContext } from './App'
 import RatingsBar from './RatingsBar'
 import Carousel from 'react-bootstrap/Carousel';
 import Card from 'react-bootstrap/Card';
+import FooterNav from './FooterNav';
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -28,7 +28,8 @@ function WaterAccess (){
     const [currentAccess, setCurrentAccess] = useState([])
     const [commentUsers, setCommentUsers] = useState([])
     const [showNewComment, setShowNewComment] = useState(false)
-    const [user] = useContext(userContext);
+    const { user } = useContext(appContext)
+    const [userValue, setUserValue] = user;
     // const reader = new FileReader()
     const [showRating, setShowRating] = useState(false)
     const loginStorage = sessionStorage.getItem("login_status")
@@ -207,7 +208,7 @@ function WaterAccess (){
             {!currentAccess.long ? <h1>loading access point information...</h1> : 
             <>
                 
-                <div style={{display: "flex", "align-items": "baseline"}}><h1>{currentAccess.name}</h1>{showRating ? <RatingsBar user={user} access={currentAccess}/> : <>{displayStars()} <Button onClick={handleShowRating} variant="rating" >Add a Rating</Button></>} </div>
+                <div style={{display: "flex", "align-items": "baseline"}}><h1>{currentAccess.name}</h1>{showRating ? <RatingsBar user={userValue} access={currentAccess}/> : <>{displayStars()} <Button onClick={handleShowRating} variant="rating" >Add a Rating</Button></>} </div>
 
                 <Carousel variant='dark' controls={true}  style={{height: "900px", "background-color": "#eff0f2"}}>
                     <Carousel.Item>
@@ -257,11 +258,12 @@ function WaterAccess (){
                 </div>
 
                 <div style={{"background-color": "rgb(0, 161, 214)", "padding": "20px"}}>
-                {showInput ? <FileInput user={user} currentAccess={currentAccess} loggedIn={loginStatus}/> : <Button onClick={handleShowInput} variant='rating'>Add an Image</Button>}
+                {showInput ? <FileInput user={userValue} currentAccess={currentAccess} loggedIn={loginStatus}/> : <Button onClick={handleShowInput} variant='rating'>Add an Image</Button>}
 
-                <h2 style={{"font-size": "30px", "font-style": "Arial", "color": "#eff0f2"}}>Town: {currentAccess.town}</h2>
+                <h2 style={{"font-size": "30px", "font-style": "Arial", "color": "#eff0f2"}}><b>Town:</b> {currentAccess.town}</h2>
+                <h2 style={{"font-size": "30px", "font-style": "Arial", "color": "#eff0f2"}}><b>Parking:</b> {currentAccess.parking}</h2>
                 <p style={{"font-size": "30px", "font-style": "Arial", "color": "#eff0f2"}}>{currentAccess.details}</p>
-                <h2 style={{"font-size": "30px", "font-style": "Arial", "color": "#eff0f2"}}>Parking:</h2>
+                
                 <p style={{"font-size": "30px", "font-style": "Arial", "color": "#eff0f2"}}>{currentAccess.parking}</p>
                 </div>
                 
@@ -291,6 +293,7 @@ function WaterAccess (){
                 
             </>
             }
+            <FooterNav/>
             </div>
     )
 }

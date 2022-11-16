@@ -1,4 +1,6 @@
 import NavBar from "./NavBar"
+import FooterNav from "./FooterNav"
+
 function Rights (){
 
     return (
@@ -15,6 +17,7 @@ function Rights (){
             <br/>“…furtherance of the protection of the rights of the people to enjoy and freely exercise the rights of fishery and the privileges of the shore, as those rights and duties are set forth in section 17, shall be an exercise of the police powers of the state, shall be liberally construed, and <i>shall not be deemed to be a public use of private property</i>.”</p>
             </div>
             </div>
+            <FooterNav/>
         </div>
     )
 }
