@@ -9,6 +9,7 @@ import Form from 'react-bootstrap/Form';
 import FooterNav from './FooterNav';
 import {useContext} from "react"
 import { appContext } from './App'
+import { useNavigate } from "react-router-dom";
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -22,6 +23,7 @@ function NewAccess (){
     const loginStorage = sessionStorage.getItem("login_status")
     const [loginStatus, setLoginStatus] = useState(loginStorage)
     const [position, setPosition] = useState(null)
+    let navigate = useNavigate();
     const MapEvents = () => {
         useMapEvents({
           click(e) {
@@ -131,7 +133,7 @@ function NewAccess (){
           })
           .then(res => res.json())
           .then(rating => {
-            console.log(rating)
+            navigate(`/`)
             
         })
         })
