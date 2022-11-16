@@ -119,11 +119,11 @@ function AccessCard (access_point){
 
     return (
         <>
-        <Card style={{ width: '25rem', height: '35rem', padding: "10px", "margin-left": "30px", "margin-right": "30px"}}>
-            <Card.Img style={{"object-fit": "cover"}} id="card_image" onClick={function(){handleCardClick(access_point.access_point.id)}} variant="top" src={access_point.access_point.water_access_images.length ? access_point.access_point.water_access_images[0].image_url : "https://upload.wikimedia.org/wikipedia/commons/1/14/Ireland-AtlanticOceanwithAranIsland.jpg"} />
+        <Card style={{ width: '25rem', height: '32rem', padding: "10px", "margin-left": "30px", "margin-right": "30px"}}>
+            <Card.Img style={{"object-fit": "cover", height: '15rem'}} id="card_image" onClick={function(){handleCardClick(access_point.access_point.id)}} variant="top" src={access_point.access_point.water_access_images.length ? access_point.access_point.water_access_images[0].image_url : "https://upload.wikimedia.org/wikipedia/commons/1/14/Ireland-AtlanticOceanwithAranIsland.jpg"} />
                 <Card.Body>
+                <div style={{"text-align": "center", "margin-top": "-15px"}}>{displayStars()}</div>
                 <Card.Title>{access_point.access_point.name}</Card.Title>
-                <div>{displayStars()}</div>
                 <Card.Text style={{ fontSize: "20px" }}>
                     {access_point.access_point.town}
                 </Card.Text>

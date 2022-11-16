@@ -48,6 +48,7 @@ function Homepage (){
                 draggable={false}
                 autoPlaySpeed={3000}
                 showDots={true}
+                infinite
                 responsive={responsive}
                 keyBoardControl={true}
                 rewind={true}
