@@ -52,7 +52,7 @@ function Search (){
 
             </div>
             <div id='searchResults'>
-                {filteredAccesses.map(access_point => <AccessCard className="accessCard" access_point={access_point} />)}
+                {filteredAccesses ? filteredAccesses.map(access_point => <AccessCard className="accessCard" access_point={access_point} />) : null}
             </div>
             <FooterNav />
         </div>

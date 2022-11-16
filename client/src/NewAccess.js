@@ -7,6 +7,8 @@ import { useMapEvents } from 'react-leaflet/hooks'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FooterNav from './FooterNav';
+import {useContext} from "react"
+import { appContext } from './App'
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -35,6 +37,8 @@ function NewAccess (){
         });
         return false;
     }
+    const { user } = useContext(appContext)
+    const [userValue, setUserValue] = user;
 
     const [ accessData, setAccessData ] = useState({
         name: "",
@@ -96,7 +100,42 @@ function NewAccess (){
         .then(res => res.json())
         .then(access => {
           console.log(access)
+          fetch("/water_access_collaborators", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json" 
+            },
+            body: JSON.stringify({
+                water_access_point_id: access.id,
+                user_id: userValue.id,
+                full_edit: true
+            })
+          })
+          .then(res => res.json())
+          .then(collab => {
+            console.log(collab)
+            
         })
+        fetch("/water_access_ratings", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json" 
+            },
+            body: JSON.stringify({
+                water_access_point_id: access.id,
+                user_id: userValue.id,
+                rating: 5
+            })
+          })
+          .then(res => res.json())
+          .then(rating => {
+            console.log(rating)
+            
+        })
+        })
+        
       }
       }
 
@@ -258,7 +297,7 @@ function NewAccess (){
                         type="text"
                         placeholder="Access type? (ROW, park, dock)"
                         autoFocus
-                        name="type"
+                        name="access_type"
                         value={accessData.access_type}
                         onChange={handleOnChange}
                         required
