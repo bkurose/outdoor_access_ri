@@ -88,7 +88,8 @@
 
 <h3>Outdoor Access Rhode Island is a React/Rails application (with other technologies assisting) designed to help facilitate access to the coast and other outdoor points of interest. After securely logging in, users will be able to create, track, edit, rate, upload photos for and comment on different GPS locations. </h3>
 <p align="center">
-<img src="https://i.ibb.co/5K5Wq4P/ezgif-com-gif-maker-1.gif" alt="ezgif-com-gif-maker-1"  width="90%" />
+<img src="https://i.ibb.co/3hFmGW6/ezgif-com-optimize.gif" alt="ezgif-com-optimize" border="0">
+<!-- <img src="https://i.ibb.co/5K5Wq4P/ezgif-com-gif-maker-1.gif" alt="ezgif-com-gif-maker-1"  width="90%" /> -->
 </p>
 
 <!--Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description` -->
