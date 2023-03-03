@@ -42,9 +42,9 @@
     <br />
     <br />
     <a href="https://www.linkedin.com/in/benjamin-kurose/">LinkedIn</a>
-    ·
+     · 
     <a href="mailto:ben.kurose@gmail.com">Contact Ben</a>
-    ·
+     · 
     <a href="https://github.com/bkurose/outdoor_access_ri/issues">Report a Bug</a>
   </p>
 </div>
@@ -86,13 +86,14 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<h3>Outdoor Access Rhode Island is a React/Rails application (with other technologies assisting) designed to help facilitate access to the coast and other outdoor points of interest. After securely logging in, users will be able to create, track, edit, rate, upload photos for and comment on different GPS locations. </h3>
+<h3>Outdoor Access Rhode Island is a React/Rails application (along with other technologies) designed to help facilitate access to the coast and other outdoor points of interest. After securely logging in, users will be able to create, track, edit, rate, upload photos and comment on different GPS locations. </h3>
 
+<br />
 <div style="text-align:center">
 
-<img src="https://s3.gifyu.com/images/ezgif.com-gif-maker-1e9df2716c348c2c8.gif" width="90%"/>
+<img src="https://s3.gifyu.com/images/ezgif.com-gif-maker-1e9df2716c348c2c8.gif" width="100%"/>
 <br />
-<p>(note: this is a .gif animation, if image is not moving you can change your GitHub accessibility setting to allow animation)</p>
+<p>(note: if image is not moving you can change your GitHub accessibility setting to allow animation)</p>
 
 </div>
 
@@ -104,6 +105,7 @@
 
 ### Technologies Used
 
+
 * [![HTML 5][HTML5]][HTML5-url]
 * [![CSS 3][CSS3]][CSS3-url]
 * [![JavaScript][JavaScript.com]][JavaScript-url]
@@ -113,9 +115,14 @@
 * [![Ruby on Rails][Rails]][Rails-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![Leaflet for React][Leaflet]][Leaflet-url]
+* [![OpenStreetMaps][OpenStreetMaps.io]][OpenStreetMaps-url]
 * [![Redux][Redux.js]][Redux-url]
 * [![PostgreSQL][Postgres]][Postgres-url]
 * [![Render][Render.io]][Render-url]
+* [![Node][Node.js]][Node-url]
+* [![NPM][NPM.io]][NPM-url]
+* [![VSC][VSC.io]][VSC-url]
+* [![Ubuntu][Ubuntu.io]][Ubuntu-url]
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -278,3 +285,13 @@ Project Link: [https://github.com/bkurose/outdoor_access_ri](https://github.com/
 [Postgres-url]: https://www.postgresql.org/
 [Render.io]: https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white
 [Render-url]: https://render.com/
+[OpenStreetMaps.io]: https://img.shields.io/badge/OpenStreetMap-7EBC6F?style=for-the-badge&logo=OpenStreetMap&logoColor=white
+[OpenStreetMaps-url]: https://www.openstreetmap.org/
+[Node.js]: 	https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white
+[Node-url]: https://nodejs.org/
+[NPM.io]: 	https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white
+[NPM-url]: https://www.npmjs.com/
+[VSC.io]: 	https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white
+[VSC-url]:  https://code.visualstudio.com/
+[Ubuntu.io]: 	https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white
+[Ubuntu-url]: https://ubuntu.com/
