@@ -90,9 +90,9 @@
 
 <div style="text-align:center">
 
-<img src="https://s3.gifyu.com/images/ezgif.com-gif-maker-1e9df2716c348c2c8.gif" width="80%"/>
+<img src="https://s3.gifyu.com/images/ezgif.com-gif-maker-1e9df2716c348c2c8.gif" width="90%"/>
 <br />
-(note: this is a .gif animation, if image is not moving you can change your GitHub accessibility setting to allow animation)
+<p>(note: this is a .gif animation, if image is not moving you can change your GitHub accessibility setting to allow animation)</p>
 
 </div>
 
