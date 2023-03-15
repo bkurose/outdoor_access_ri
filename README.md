@@ -94,10 +94,7 @@
 
 
 <img src="https://s3.gifyu.com/images/ezgif.com-gif-maker-1e9df2716c348c2c8.gif" width="100%"/>
-<div style="text-align:center">
-<p>(note: if image is not moving you can change your GitHub accessibility setting to allow animation)</p>
 
-</div>
 
 <!--Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description` -->
 
