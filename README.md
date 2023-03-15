@@ -94,7 +94,6 @@
 
 
 <img src="https://s3.gifyu.com/images/ezgif.com-gif-maker-1e9df2716c348c2c8.gif" width="100%"/>
-<br />
 <div style="text-align:center">
 <p>(note: if image is not moving you can change your GitHub accessibility setting to allow animation)</p>
 
@@ -213,9 +212,9 @@ Distributed under the MIT License. See `LICENSE.md` for more information.
 
 <!-- CONTACT -->
 # Contact
-
-Ben Kurose - ben.kurose@gmail.com
-
+<p>
+    <a href="mailto:ben.kurose@gmail.com">Email Ben</a>
+</p>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
